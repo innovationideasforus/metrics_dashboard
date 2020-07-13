@@ -16,6 +16,7 @@ select {
   padding: 10px;
   border-radius: 4px;
   width: 80%;
+  font-size: 18px;
 }
 .footer {
   padding: 40px 20px;

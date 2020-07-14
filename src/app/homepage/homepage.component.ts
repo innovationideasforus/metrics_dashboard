@@ -21,6 +21,27 @@ export class HomepageComponent implements OnInit {
     },
   ];
   automation: any;
+
+  functionalOptions = [
+    {
+      value: 'functclaims',
+      label: 'CLAIMS',
+    },
+    {
+      value: 'functcuscomms',
+      label: 'CUSCOMMS',
+    },
+    {
+      value: 'functmobile',
+      label: 'MOBILE',
+    },
+    {
+      value: 'functweb',
+      label: 'WEB',
+    },
+  ];
+  functional: any;
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {}

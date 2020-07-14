@@ -1,1 +1,171 @@
-<p>functclaims works!</p>
+<div class="gios-wrapper">
+  <h1>CLAIMS</h1>
+  <div class="row row-header">
+    <div class="row-item">
+      <h1>Date</h1>
+    </div>
+    <div class="row-item">
+      <h1>Projects</h1>
+    </div>
+    <div class="row-item">
+      <h1>Modules</h1>
+    </div>
+    <div class="row-item">
+      <h1>Release</h1>
+    </div>
+    <div class="row-item">
+      <h1>Assigned To</h1>
+    </div>
+    <div class="row-item">
+      <h1>Test Prep Planned</h1>
+    </div>
+    <div class="row-item">
+      <h1>Time Taken</h1>
+    </div>
+    <div class="row-item">
+      <h1>Test Prep Rework</h1>
+    </div>
+    <div class="row-item">
+      <h1>Time Taken</h1>
+    </div>
+    <div class="row-item">
+      <h1>pass</h1>
+    </div>
+    <div class="row-item">
+      <h1>Fail</h1>
+    </div>
+    <div class="row-item">
+      <h1>Hold</h1>
+    </div>
+    <div class="row-item">
+      <h1>Retest</h1>
+    </div>
+    <div class="row-item">
+      <h1>Downtime</h1>
+    </div>
+    <div class="row-item">
+      <h1>Other Activities</h1>
+    </div>
+    <div class="row-item">
+      <h1>Time Taken</h1>
+    </div>
+    <div class="row-item">
+      <h1>Remarks</h1>
+    </div>
+  </div>
+  <div>
+    <div class="row row-body">
+      <div class="row-item">
+        <div class="form-input">
+          <input type="date" />
+        </div>
+      </div>
+
+      <div class="row-item">
+        <div class="form-input">
+          <select>
+            <option *ngFor="let task of otherProjects" [value]="task">
+              {{ task }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row-item">
+        <div class="form-input">
+          <select>
+            <option *ngFor="let task of otherModules" [value]="task">
+              {{ task }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row-item">
+        <div class="form-input">
+          <select>
+            <option *ngFor="let task of otherRelease" [value]="task">
+              {{ task }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row-item">
+        <div class="form-input">
+          <select>
+            <option *ngFor="let task of otherAssigned" [value]="task">
+              {{ task }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row-item">
+        <div class="form-input">
+          <input type="number" />
+        </div>
+      </div>
+      <div class="row-item">
+        <div class="form-input">
+          <input type="number" />
+        </div>
+      </div>
+      <div class="row-item">
+        <div class="form-input">
+          <input type="number" />
+        </div>
+      </div>
+      <div class="row-item">
+        <div class="form-input">
+          <input type="number" />
+        </div>
+      </div>
+      <div class="row-item">
+        <div class="form-input">
+          <input type="number" />
+        </div>
+      </div>
+      <div class="row-item">
+        <div class="form-input">
+          <input type="number" />
+        </div>
+      </div>
+      <div class="row-item">
+        <div class="form-input">
+          <input type="number" />
+        </div>
+      </div>
+      <div class="row-item">
+        <div class="form-input">
+          <input type="number" />
+        </div>
+      </div>
+      <div class="row-item">
+        <div class="form-input">
+          <input type="number" />
+        </div>
+      </div>
+
+      <div class="row-item">
+        <div class="form-input">
+          <select>
+            <option *ngFor="let task of otherTasks" [value]="task">
+              {{ task }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row-item">
+        <div class="form-input">
+          <input type="number" />
+        </div>
+      </div>
+      <div class="row-item">
+        <div class="form-input">
+          <input type="text" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <button>Submit</button>
+  </div>
+</div>

@@ -25,11 +25,15 @@
     <!--Functional_Starting-->
     <a class="card" target="_blank" rel="noopener">
       <span>FUNCTIONAL</span>
-      <select id="FUNCTIONAL" onchange="myFunction()" class="form-control">
-        <option>CUS COMMS</option>
-        <option>MOBILE</option>
-        <option>CLAIMS</option>
-        <option>WEB</option>
+      <select
+        id="FUNCTIONAL"
+        class="form-control"
+        (change)="selectAutomation($event)"
+        [(ngModel)]="functional"
+      >
+        <option *ngFor="let item of functionalOptions" [value]="item.value">
+          {{ item.label }}
+        </option>
       </select>
     </a>
     <!--Functional_Ending-->

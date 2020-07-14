@@ -41,11 +41,13 @@ export class HomepageComponent implements OnInit {
     },
   ];
   functional: any;
-
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
   selectAutomation(e) {
     this.router.navigate([this.automation]);
+  }
+  selectFunctional(e) {
+    this.router.navigate([this.functional]);
   }
 }

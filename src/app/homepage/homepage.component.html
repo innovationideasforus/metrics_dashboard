@@ -28,7 +28,7 @@
       <select
         id="FUNCTIONAL"
         class="form-control"
-        (change)="selectAutomation($event)"
+        (change)="selectFunctional($event)"
         [(ngModel)]="functional"
       >
         <option *ngFor="let item of functionalOptions" [value]="item.value">

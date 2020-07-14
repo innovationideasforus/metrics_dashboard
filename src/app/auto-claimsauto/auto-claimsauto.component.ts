@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-auto-claimsauto',
   templateUrl: './auto-claimsauto.component.html',
@@ -34,7 +34,10 @@ export class AutoClaimsautoComponent implements OnInit {
   ];
 
   otherProjects = ['QTP', 'CTA'];
-  constructor() {}
+  cancel() {
+    this.router.navigate(['homepage']);
+  }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 }

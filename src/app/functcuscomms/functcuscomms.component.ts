@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-functcuscomms',
@@ -34,7 +35,10 @@ export class FunctcuscommsComponent implements OnInit {
   ];
   otherProjects = ['BAU', 'EE', 'GIOS Controls'];
   otherAssigned = ['Saravanan', 'Dhrubo', 'Sathish'];
-  constructor() {}
+  cancel() {
+    this.router.navigate(['homepage']);
+  }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 }

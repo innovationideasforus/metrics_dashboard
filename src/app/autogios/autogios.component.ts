@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-autogios',
   templateUrl: './autogios.component.html',
@@ -32,7 +32,10 @@ export class AutogiosComponent implements OnInit {
     'Coordination with the onsite team',
     'Data Preparation',
   ];
-  constructor() {}
+  cancel() {
+    this.router.navigate(['homepage']);
+  }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 }

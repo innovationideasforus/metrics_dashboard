@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-functmobile',
   templateUrl: './functmobile.component.html',
@@ -41,7 +41,10 @@ export class FunctmobileComponent implements OnInit {
     '    Online Doctor Phase 4',
   ];
   otherAssigned = ['Vasanth', 'Chakrapani', 'Rajat', 'Sangeetha'];
-  constructor() {}
+  cancel() {
+    this.router.navigate(['homepage']);
+  }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 }

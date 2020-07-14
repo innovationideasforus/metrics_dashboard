@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-functclaims',
   templateUrl: './functclaims.component.html',
@@ -36,7 +36,10 @@ export class FunctclaimsComponent implements OnInit {
   otherModules = ['IAS', 'Softco', 'PVS', 'Myvhi', 'PCCS'];
   otherRelease = ['Release 1', 'Release 2', 'Release 3'];
   otherAssigned = ['Geetha'];
-  constructor() {}
+  cancel() {
+    this.router.navigate(['homepage']);
+  }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 }

@@ -1,3 +1,5 @@
+// this file will handle the connection logic to the MongoDb database
+
 const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
@@ -7,7 +9,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log('Database conencted'))
+  .then(() => console.log('Database connected'))
   .catch((error) => console.log(error));
 
-module.exports = mongoose;
+module.exports = { mongoose };

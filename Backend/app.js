@@ -9,9 +9,12 @@ const { User } = require('./database/models');
 CORS - cross origin request security
 localhost:3000 - backend api
 localhost:4200 - front end
-*/
 
+*/
 app.use(bodyParser.urlencoded({ extended: true }));
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -26,15 +29,24 @@ app.use((req, res, next) => {
   next();
 });
 
+/**
+ * this is to test the page and the request body , it is purely for testing purpose
+ */
+app.post('/user', (req, res) => {
+  console.log('Got body:', req.body);
+  res.sendStatus(200);
+});
+
 /* USER ROUTES*/
 
 // post /users
-//purpose : sign up
+//purpose : first time sign up
 
 app.post('/users', (req, res) => {
-  //console.log('testting');
+  console.log('testing');
   let body = req.body;
   let newUser = new User(body);
+  console.log(req.body);
 
   newUser
     .save()
@@ -62,7 +74,7 @@ app.post('/users', (req, res) => {
 
 /**
  * post /users/login
- * purpose: login
+ * purpose: post user is created we can able to login
  */
 app.post('./users/login', (req, res) => {
   let email = req.body.email;
@@ -89,13 +101,7 @@ app.post('./users/login', (req, res) => {
     });
 });
 
-/* ROUTE HANDLERS */
-
 /* LIST ROUTES */
-
-app.get('/', (req, res) => {
-  res.send('Hello World');
-});
 
 app.use(express.json());
 app.listen(3000, () => console.log('Server Connected On Port 3000'));

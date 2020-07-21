@@ -11,7 +11,7 @@ localhost:3000 - backend api
 localhost:4200 - front end
 
 */
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.get('/', (req, res) => {
   res.send('Hello World');
 });

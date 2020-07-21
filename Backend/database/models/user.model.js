@@ -23,7 +23,6 @@ const UserSchema = new mongoose.Schema({
 
   password: {
     type: String,
-    unique: true,
     required: true,
     minlength: 8,
   },
@@ -176,5 +175,5 @@ UserSchema.pre('save', function (next) {
 
 // Healper Methods
 
-const User = mongoose.model('user', UserSchema);
+const User = mongoose.model('User', UserSchema);
 module.exports = { User };

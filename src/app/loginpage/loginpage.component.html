@@ -5,17 +5,19 @@
   style="padding-left: 650px; padding-right: 650px; padding-top: 200px;"
 >
   <label _ngcontent-slc-c17="" _ngcontent-ipw-c17="" for="uname"
-    ><b _ngcontent-slc-c17="" _ngcontent-ipw-c17="">Username</b></label
+    ><b _ngcontent-slc-c17="" _ngcontent-ipw-c17="">Email</b></label
   ><input
+    #emailInput
     _ngcontent-slc-c17=""
     _ngcontent-ipw-c17=""
-    type="text"
-    placeholder="Enter Username"
+    type="email"
+    placeholder="Enter Email Address"
     name="uname"
     required=""
   /><label _ngcontent-slc-c17="" _ngcontent-ipw-c17="" for="psw"
     ><b _ngcontent-slc-c17="" _ngcontent-ipw-c17="">Password</b></label
   ><input
+    #pwInput
     _ngcontent-slc-c17=""
     _ngcontent-ipw-c17=""
     type="password"
@@ -26,7 +28,7 @@
     _ngcontent-slc-c17=""
     _ngcontent-ipw-c17=""
     type="submit"
-    (click)="login()"
+    (click)="onLoginButtonClicked(emailInput.value, pwInput.value)"
   >
     Login</button
   ><label _ngcontent-slc-c17="" _ngcontent-ipw-c17=""

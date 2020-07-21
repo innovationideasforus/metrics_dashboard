@@ -20,7 +20,6 @@ const UserSchema = new mongoose.Schema({
     trim: true,
     unique: true,
   },
-
   password: {
     type: String,
     required: true,
@@ -42,17 +41,18 @@ const UserSchema = new mongoose.Schema({
 
 //instance methods we are going to use  1. userschema.methods.toJson =function()
 
-UserSchema.methods.toJson = function () {
+UserSchema.methods.toJSON = function () {
   const user = this;
   const userObject = user.toObject();
-  // return the document except the password and sessions (therse should be made available)
-  return_.omit(userObject, ['password', 'sessions']);
+
+  // return the document except the password and sessions (these shouldn't be made available)
+  return _.omit(userObject, ['password', 'sessions']);
 };
 
 UserSchema.methods.generateAccessAuthToken = function () {
   const user = this;
   return new Promise((resolve, reject) => {
-    //cretae the JSON web tokend and return that
+    // Create the JSON Web Token and return that
     jwt.sign(
       { _id: user._id.toHexString() },
       jwtSecret,
@@ -61,6 +61,7 @@ UserSchema.methods.generateAccessAuthToken = function () {
         if (!err) {
           resolve(token);
         } else {
+          // there is an error
           reject();
         }
       }
@@ -69,42 +70,50 @@ UserSchema.methods.generateAccessAuthToken = function () {
 };
 
 UserSchema.methods.generateRefreshAuthToken = function () {
+  // This method simply generates a 64byte hex string - it doesn't save it to the database. saveSessionToDatabase() does that.
   return new Promise((resolve, reject) => {
     crypto.randomBytes(64, (err, buf) => {
       if (!err) {
+        // no error
         let token = buf.toString('hex');
+
         return resolve(token);
       }
     });
-    let expiresAt = generateRefreshTokenExpiryTime();
   });
 };
 
 UserSchema.methods.createSession = function () {
   let user = this;
+
   return user
     .generateRefreshAuthToken()
-    .then((refreshtoken) => {
-      return saveSessionToDatabase(user, refreshtoken);
+    .then((refreshToken) => {
+      return saveSessionToDatabase(user, refreshToken);
     })
-    .then((refreshtoken) => {
-      return refreshtoken;
+    .then((refreshToken) => {
+      // saved to database successfully
+      // now return the refresh token
+      return refreshToken;
     })
     .catch((e) => {
-      return Promise.reject('Failed to save session to the Database.\n' + e);
+      return Promise.reject('Failed to save session to database.\n' + e);
     });
 };
 
-let saveSessionToDatabase = (user, refreshtoken) => {
-  //save session to database
+/* HELPER METHODS */
+let saveSessionToDatabase = (user, refreshToken) => {
+  // Save session to database
   return new Promise((resolve, reject) => {
     let expiresAt = generateRefreshTokenExpiryTime();
-    user.sessions.push({ token: refreshtoken, expiresAt });
+
+    user.sessions.push({ token: refreshToken, expiresAt });
+
     user
       .save()
       .then(() => {
-        //session has been saved here successfully
-        return resolve(refreshtoken);
+        // saved session successfully
+        return resolve(refreshToken);
       })
       .catch((e) => {
         reject(e);
@@ -118,13 +127,22 @@ let generateRefreshTokenExpiryTime = () => {
   return Date.now() / 1000 + secondsUntilExpire;
 };
 
-// Models Methods - static methods
+/* MODEL METHODS (static methods) */
+
+UserSchema.statics.getJWTSecret = () => {
+  return jwtSecret;
+};
 
 UserSchema.statics.findByIdAndToken = function (_id, token) {
-  // find user by Id and token
-  // used in auth midddleware - verify seesion
+  // finds user by id and token
+  // used in auth middleware (verifySession)
+
   const User = this;
-  return User.findOne({ _id, 'session.token': token });
+
+  return User.findOne({
+    _id,
+    'sessions.token': token,
+  });
 };
 
 UserSchema.statics.findByCredentials = function (email, password) {
@@ -134,8 +152,9 @@ UserSchema.statics.findByCredentials = function (email, password) {
 
     return new Promise((resolve, reject) => {
       bcrypt.compare(password, user.password, (err, res) => {
-        if (res) resolve(user);
-        else {
+        if (res) {
+          resolve(user);
+        } else {
           reject();
         }
       });
@@ -146,22 +165,24 @@ UserSchema.statics.findByCredentials = function (email, password) {
 UserSchema.statics.hasRefreshTokenExpired = (expiresAt) => {
   let secondsSinceEpoch = Date.now() / 1000;
   if (expiresAt > secondsSinceEpoch) {
+    // hasn't expired
     return false;
   } else {
+    // has expired
     return true;
   }
 };
 
-// MIDDLEWARE
-// Before a user document is save , this code runs
-
+/* MIDDLEWARE */
+// Before a user document is saved, this code runs
 UserSchema.pre('save', function (next) {
   let user = this;
   let costFactor = 10;
 
   if (user.isModified('password')) {
-    // if the password is changed then run this code
-    //generating salt and password
+    // if the password field has been edited/changed then run this code.
+
+    // Generate salt and hash password
     bcrypt.genSalt(costFactor, (err, salt) => {
       bcrypt.hash(user.password, salt, (err, hash) => {
         user.password = hash;
@@ -172,8 +193,6 @@ UserSchema.pre('save', function (next) {
     next();
   }
 });
-
-// Healper Methods
 
 const User = mongoose.model('User', UserSchema);
 module.exports = { User };

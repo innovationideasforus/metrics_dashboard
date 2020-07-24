@@ -1,0 +1,35 @@
+<div
+  _ngcontent-slc-c17=""
+  _ngcontent-ipw-c17=""
+  class="container"
+  style="padding-left: 650px; padding-right: 650px; padding-top: 200px;"
+>
+  <label _ngcontent-slc-c17="" _ngcontent-ipw-c17="" for="uname"
+    ><b _ngcontent-slc-c17="" _ngcontent-ipw-c17="">Email</b></label
+  ><input
+    #emailInput
+    _ngcontent-slc-c17=""
+    _ngcontent-ipw-c17=""
+    type="email"
+    placeholder="Enter Email Address"
+    name="uname"
+    required=""
+  /><label _ngcontent-slc-c17="" _ngcontent-ipw-c17="" for="psw"
+    ><b _ngcontent-slc-c17="" _ngcontent-ipw-c17="">Password</b></label
+  ><input
+    #pwInput
+    _ngcontent-slc-c17=""
+    _ngcontent-ipw-c17=""
+    type="password"
+    placeholder="Enter Password"
+    name="psw"
+    required=""
+  /><button
+    _ngcontent-slc-c17=""
+    _ngcontent-ipw-c17=""
+    type="Sign Up"
+    (click)="onSignupButtonClicked(emailInput.value, pwInput.value)"
+  >
+    Sign up
+  </button>
+</div>

@@ -44,6 +44,10 @@ export class HomepageComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  onLogoutButtonClicked() {
+    this.router.navigate(['loginpage']);
+  }
   selectAutomation(e) {
     this.router.navigate([this.automation]);
   }

@@ -30,6 +30,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { from } from 'rxjs';
+import { SignupPageComponent } from './signup-page/signup-page.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { from } from 'rxjs';
     RepleaveComponent,
     RepdefectsComponent,
     LearningComponent,
+    SignupPageComponent,
   ],
   imports: [
     HttpClientModule,

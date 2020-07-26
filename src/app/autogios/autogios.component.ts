@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AutoGios } from './autogios';
+import {AutogiosService} from '../autogios.service';
+import { HttpResponse } from '@angular/common/http'
+import { from } from 'rxjs';
 @Component({
   selector: 'app-autogios',
   templateUrl: './autogios.component.html',
@@ -32,10 +36,33 @@ export class AutogiosComponent implements OnInit {
     'Coordination with the onsite team',
     'Data Preparation',
   ];
+  model:AutoGios = new AutoGios("2020-07-27",1,2,3,4,5,"Calls");
+ 
+  constructor(private router: Router, private autogiosService: AutogiosService) {}
+
+  ngOnInit(): void {}
+
   cancel() {
     this.router.navigate(['homepage']);
   }
-  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  addAutoGios(){
+    let autogios = this.model;
+    console.log("AutoGios"+ autogios);
+  }
+
+  onSubmit(){
+    this.autogiosService
+      .addGiosAutomation(this.model)
+      .subscribe((res: HttpResponse<any>) => {
+        if (res.status === 200) {
+          // we have logged in successfully
+          console.log(res);
+          this.router.navigate(['autogios']);
+        }
+        
+      });
+  }
+
+  get diagnostic() { return JSON.stringify(this.model); }
 }

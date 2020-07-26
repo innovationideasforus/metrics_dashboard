@@ -1,5 +1,7 @@
+{{diagnostic}}
 <div class="gios-wrapper">
   <h1>GIOS AUTOMATION</h1>
+  <form #autoGiosForm="ngForm" (ngSubmit)="onSubmit()">
   <div class="row row-header">
     <div class="row-item">
       <h1>Date</h1>
@@ -30,33 +32,33 @@
     <div class="row row-body">
       <div class="row-item">
         <div class="form-input">
-          <input type="date" />
+          <input type="date" id="giosDate" [(ngModel)]="model.date" name="date" #giosDate/>
         </div>
       </div>
       <div class="row-item">
         <div class="form-input">
-          <input type="number" />
+          <input type="number" id="giosTestCaseFixed" [(ngModel)]="model.testCaseFixed" name="testCaseFixed" #giosTestCaseFixed/>
         </div>
       </div>
       <div class="row-item">
         <div class="form-input">
-          <input type="number" />
+          <input type="number" id="giosTestCaseExecuted" [(ngModel)]="model.testCaseExecuted" name="testCaseExecuted" #giosTestCaseExecuted/>
         </div>
       </div>
       <div class="row-item">
         <div class="form-input">
-          <input type="number" />
+          <input type="number" id="giosDefectRaised" [(ngModel)]="model.defectRaised" name="defectRaised" #giosDefectRaised/>
         </div>
       </div>
       <div class="row-item">
         <div class="form-input">
-          <input type="number" />
+          <input type="number" id="giosDownTime" [(ngModel)]="model.downTime" name="downTime" #giosDownTime/>
         </div>
       </div>
 
       <div class="row-item">
         <div class="form-input">
-          <select>
+          <select id="giosOtherActivities" name="otherActivities" [(ngModel)]="model.otherActivities">
             <option *ngFor="let task of otherTasks" [value]="task">
               {{ task }}
             </option>
@@ -65,19 +67,19 @@
       </div>
       <div class="row-item">
         <div class="form-input">
-          <input type="number" />
+          <input type="number" id="giosTimeTaken" [(ngModel)]="model.timeTaken" name="timeTaken" #giosTimeTaken/>
         </div>
       </div>
 
       <div class="row-item">
         <div class="form-input">
-          <input type="text" />
+          <input type="text" id="giosRemarks" [(ngModel)]="model.remarks" name="remarks" #giosRemarks/>
         </div>
       </div>
     </div>
   </div>
   <div class="footer">
-    <button>Submit</button>
+    <button type="submit" (click)="addAutoGios()">Submit</button>
   </div>
   <div class="footer">
     <button
@@ -89,6 +91,7 @@
       Cancel
     </button>
   </div>
+</form>
   <svg
     id="clouds"
     alt="Gray Clouds Background"

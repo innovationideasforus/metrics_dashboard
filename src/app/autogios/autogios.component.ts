@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AutoGios } from './autogios';
-import {AutogiosService} from '../autogios.service';
-import { HttpResponse } from '@angular/common/http'
+import { AutogiosService } from '../autogios.service';
+import { HttpResponse } from '@angular/common/http';
 import { from } from 'rxjs';
 @Component({
   selector: 'app-autogios',
@@ -36,9 +36,12 @@ export class AutogiosComponent implements OnInit {
     'Coordination with the onsite team',
     'Data Preparation',
   ];
-  model:AutoGios = new AutoGios("2020-07-27",1,2,3,4,5,"Calls");
- 
-  constructor(private router: Router, private autogiosService: AutogiosService) {}
+  model: AutoGios = new AutoGios('2020-07-27', 1, 2, 3, 4, 5, 'Calls');
+
+  constructor(
+    private router: Router,
+    private autogiosService: AutogiosService
+  ) {}
 
   ngOnInit(): void {}
 
@@ -46,12 +49,7 @@ export class AutogiosComponent implements OnInit {
     this.router.navigate(['homepage']);
   }
 
-  addAutoGios(){
-    let autogios = this.model;
-    console.log("AutoGios"+ autogios);
-  }
-
-  onSubmit(){
+  onSubmit() {
     this.autogiosService
       .addGiosAutomation(this.model)
       .subscribe((res: HttpResponse<any>) => {
@@ -60,9 +58,10 @@ export class AutogiosComponent implements OnInit {
           console.log(res);
           this.router.navigate(['autogios']);
         }
-        
       });
   }
 
-  get diagnostic() { return JSON.stringify(this.model); }
+  get diagnostic() {
+    return JSON.stringify(this.model);
+  }
 }

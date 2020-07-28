@@ -1,3 +1,4 @@
 const { User } = require('./user.model');
 const { Autogios } = require('./autogios.model');
-module.exports = { User, Autogios};
+const { Autoei } = require('./autoei.model');
+module.exports = { User, Autogios, Autoei };

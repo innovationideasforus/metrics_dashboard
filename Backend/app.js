@@ -6,10 +6,13 @@ const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 // Load in the mongoose models
 const { User } = require('./models');
+const { autoei } = require('./models/autoei.model');
+const { autogios } = require('./models/autogios.model');
 
 // Load User Routes
 const userRouter = require('./routers/user');
 const autogiosRouter = require('./routers/autogios');
+const autoeiRouter = require('./routers/autoei');
 
 const app = express();
 /*
@@ -19,9 +22,8 @@ localhost:4200 - front end
 
 */
 
-
 // CORS HEADERS MIDDLEWARE
-app.use((req,res,next) => {
+app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header(
     'Access-Control-Allow-Methods',
@@ -40,8 +42,6 @@ app.use((req,res,next) => {
   next();
 });
 
-
-
 /* MIDDLEWARE STARTS*/
 // Load middleware
 app.use(bodyParser.json());
@@ -50,9 +50,8 @@ app.get('/', (req, res) => {
   res.send('Hello World');
 });
 
-
-
 /* MIDDLEWARE ENDS*/
 app.use(express.json());
-app.use(userRouter,autogiosRouter);
+app.use(userRouter, autogiosRouter);
+app.use(userRouter, autoeiRouter);
 app.listen(3000, () => console.log('Server Connected On Port 3000'));

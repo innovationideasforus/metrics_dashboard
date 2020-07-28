@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AutoEi } from './autoei';
+import { AutoeiService } from '../autoei.service';
+import { HttpResponse } from '@angular/common/http';
+import { from } from 'rxjs';
 @Component({
   selector: 'app-auto-ei',
   templateUrl: './auto-ei.component.html',
   styleUrls: ['./auto-ei.component.css'],
 })
-export class AutoEiComponent implements OnInit {
+export class AutoeiComponent implements OnInit {
   otherTasks = [
     'Calls',
     'Meetings',
@@ -32,11 +36,40 @@ export class AutoEiComponent implements OnInit {
     'Coordination with the onsite team',
     'Data Preparation',
   ];
+  model: AutoEi = new AutoEi(
+    '2020-07-27',
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    'calls',
+    2,
+    'REMARKS'
+  );
+
+  constructor(private router: Router, private autoeiService: AutoeiService) {}
+
+  ngOnInit(): void {}
 
   cancel() {
     this.router.navigate(['homepage']);
   }
-  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  onSubmit() {
+    this.autoeiService
+      .addEiAutomation(this.model)
+      .subscribe((res: HttpResponse<any>) => {
+        if (res.status === 200) {
+          // we have logged in successfully
+          console.log(res);
+          this.router.navigate(['autoei']);
+        }
+      });
+  }
+
+  get diagnostic() {
+    return JSON.stringify(this.model);
+  }
 }

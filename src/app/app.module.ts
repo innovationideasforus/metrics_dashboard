@@ -9,7 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AutogiosComponent } from './autogios/autogios.component';
-import { AutoEiComponent } from './auto-ei/auto-ei.component';
+import { AutoeiComponent } from './auto-ei/auto-ei.component';
 import { AutoClaimsautoComponent } from './auto-claimsauto/auto-claimsauto.component';
 import { FunctcuscommsComponent } from './functcuscomms/functcuscomms.component';
 import { FunctmobileComponent } from './functmobile/functmobile.component';
@@ -40,7 +40,7 @@ import { SignupPageComponent } from './signup-page/signup-page.component';
     LoginpageComponent,
     HomepageComponent,
     AutogiosComponent,
-    AutoEiComponent,
+    AutoeiComponent,
     AutoClaimsautoComponent,
     FunctcuscommsComponent,
     FunctmobileComponent,

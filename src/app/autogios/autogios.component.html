@@ -1,97 +1,148 @@
-{{diagnostic}}
+{{ diagnostic }}
 <div class="gios-wrapper">
   <h1>GIOS AUTOMATION</h1>
+
   <form #autoGiosForm="ngForm" (ngSubmit)="onSubmit()">
-  <div class="row row-header">
-    <div class="row-item">
-      <h1>Date</h1>
-    </div>
-    <div class="row-item">
-      <h1>Test Case Fixed in E and B Pack 3</h1>
-    </div>
-    <div class="row-item">
-      <h1>Test Case Executed</h1>
-    </div>
-    <div class="row-item">
-      <h1>Defect Raised</h1>
-    </div>
-    <div class="row-item">
-      <h1>Downtime</h1>
-    </div>
-    <div class="row-item">
-      <h1>Other Activities</h1>
-    </div>
-    <div class="row-item">
-      <h1>Time Taken</h1>
-    </div>
-    <div class="row-item">
-      <h1>Remarks</h1>
-    </div>
-  </div>
-  <div>
-    <div class="row row-body">
+    <div class="row row-header">
       <div class="row-item">
-        <div class="form-input">
-          <input type="date" id="giosDate" [(ngModel)]="model.date" name="date" #giosDate/>
-        </div>
+        <h1>Date</h1>
       </div>
       <div class="row-item">
-        <div class="form-input">
-          <input type="number" id="giosTestCaseFixed" [(ngModel)]="model.testCaseFixed" name="testCaseFixed" #giosTestCaseFixed/>
-        </div>
+        <h1>Test Case Fixed in E and B Pack 3</h1>
       </div>
       <div class="row-item">
-        <div class="form-input">
-          <input type="number" id="giosTestCaseExecuted" [(ngModel)]="model.testCaseExecuted" name="testCaseExecuted" #giosTestCaseExecuted/>
-        </div>
+        <h1>Test Case Executed</h1>
       </div>
       <div class="row-item">
-        <div class="form-input">
-          <input type="number" id="giosDefectRaised" [(ngModel)]="model.defectRaised" name="defectRaised" #giosDefectRaised/>
-        </div>
+        <h1>Defect Raised</h1>
       </div>
       <div class="row-item">
-        <div class="form-input">
-          <input type="number" id="giosDownTime" [(ngModel)]="model.downTime" name="downTime" #giosDownTime/>
-        </div>
+        <h1>Downtime</h1>
       </div>
+      <div class="row-item">
+        <h1>Other Activities</h1>
+      </div>
+      <div class="row-item">
+        <h1>Time Taken</h1>
+      </div>
+      <div class="row-item">
+        <h1>Remarks</h1>
+      </div>
+    </div>
 
-      <div class="row-item">
-        <div class="form-input">
-          <select id="giosOtherActivities" name="otherActivities" [(ngModel)]="model.otherActivities">
-            <option *ngFor="let task of otherTasks" [value]="task">
-              {{ task }}
-            </option>
-          </select>
+    <div>
+      <div class="row row-body">
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="date"
+              id="giosDate"
+              [(ngModel)]="model.date"
+              name="date"
+              #giosDate
+            />
+          </div>
         </div>
-      </div>
-      <div class="row-item">
-        <div class="form-input">
-          <input type="number" id="giosTimeTaken" [(ngModel)]="model.timeTaken" name="timeTaken" #giosTimeTaken/>
-        </div>
-      </div>
 
-      <div class="row-item">
-        <div class="form-input">
-          <input type="text" id="giosRemarks" [(ngModel)]="model.remarks" name="remarks" #giosRemarks/>
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="giosTestCaseFixed"
+              [(ngModel)]="model.testCaseFixed"
+              name="testCaseFixed"
+              #giosTestCaseFixed
+            />
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="giosTestCaseExecuted"
+              [(ngModel)]="model.testCaseExecuted"
+              name="testCaseExecuted"
+              #giosTestCaseExecuted
+            />
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="giosDefectRaised"
+              [(ngModel)]="model.defectRaised"
+              name="defectRaised"
+              #giosDefectRaised
+            />
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="giosDownTime"
+              [(ngModel)]="model.downTime"
+              name="downTime"
+              #giosDownTime
+            />
+          </div>
+        </div>
+
+        <div class="row-item">
+          <div class="form-input">
+            <select
+              id="giosOtherActivities"
+              name="otherActivities"
+              [(ngModel)]="model.otherActivities"
+            >
+              <option *ngFor="let task of otherTasks" [value]="task">
+                {{ task }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="giosTimeTaken"
+              [(ngModel)]="model.timeTaken"
+              name="timeTaken"
+              #giosTimeTaken
+            />
+          </div>
+        </div>
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="text"
+              id="giosRemarks"
+              [(ngModel)]="model.remarks"
+              name="remarks"
+              #giosRemarks
+            />
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="footer">
-    <button type="submit" (click)="addAutoGios()">Submit</button>
-  </div>
-  <div class="footer">
-    <button
-      _ngcontent-slc-c17=""
-      _ngcontent-ipw-c17=""
-      type="submit"
-      (click)="cancel()"
-    >
-      Cancel
-    </button>
-  </div>
-</form>
+
+    <div class="footer">
+      <button type="submit">Submit</button>
+    </div>
+
+    <div class="footer">
+      <button
+        _ngcontent-slc-c17=""
+        _ngcontent-ipw-c17=""
+        type="submit"
+        (click)="cancel()"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
   <svg
     id="clouds"
     alt="Gray Clouds Background"

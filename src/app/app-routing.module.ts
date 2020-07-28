@@ -4,7 +4,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { AutoClaimsautoComponent } from './auto-claimsauto/auto-claimsauto.component';
-import { AutoEiComponent } from './auto-ei/auto-ei.component';
+import { AutoeiComponent } from './auto-ei/auto-ei.component';
 import { AutogiosComponent } from './autogios/autogios.component';
 import { FunctclaimsComponent } from './functclaims/functclaims.component';
 import { FunctcuscommsComponent } from './functcuscomms/functcuscomms.component';
@@ -39,7 +39,7 @@ const routes: Routes = [
   },
   {
     path: 'auto-ei',
-    component: AutoEiComponent,
+    component: AutoeiComponent,
   },
   {
     path: 'autogios',

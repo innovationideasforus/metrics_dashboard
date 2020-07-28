@@ -1,20 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AutoEiComponent } from './auto-ei.component';
+import { AutoeiComponent } from './auto-ei.component';
 
-describe('AutoEiComponent', () => {
-  let component: AutoEiComponent;
-  let fixture: ComponentFixture<AutoEiComponent>;
+describe('AutoeiComponent', () => {
+  let component: AutoeiComponent;
+  let fixture: ComponentFixture<AutoeiComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AutoEiComponent ]
-    })
-    .compileComponents();
+      declarations: [AutoeiComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AutoEiComponent);
+    fixture = TestBed.createComponent(AutoeiComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -7,17 +7,23 @@ const crypto = require('crypto');
 const { response } = require('express');
 const bcrypt = require('bcryptjs');
 
-const AutogiosSchema = new mongoose.Schema({
+const AutoeiSchema = new mongoose.Schema({
   date: {
     type: Date,
   },
-  testCaseFixed: {
+  scriptsPrepared: {
     type: Number,
   },
-  testCaseExecuted: {
+  timeTaken1: {
     type: Number,
   },
-  defectRaised: {
+  scriptsExecuted: {
+    type: Number,
+  },
+  timeTaken2: {
+    type: Number,
+  },
+  defectsRaised: {
     type: Number,
   },
   downTime: {
@@ -27,12 +33,13 @@ const AutogiosSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
-  timeTaken: {
+  timeTaken3: {
     type: Number,
   },
   remarks: {
     type: String,
   },
+
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
@@ -40,5 +47,5 @@ const AutogiosSchema = new mongoose.Schema({
   },
 });
 
-const Autogios = mongoose.model('Autogios', AutogiosSchema);
-module.exports = { Autogios };
+const Autoei = mongoose.model('Autoei', AutoeiSchema);
+module.exports = { Autoei };

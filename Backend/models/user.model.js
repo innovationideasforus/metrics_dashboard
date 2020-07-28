@@ -46,7 +46,7 @@ UserSchema.methods.toJSON = function () {
   const userObject = user.toObject();
 
   // return the document except the password and sessions (these shouldn't be made available)
-  return _.omit(userObject, ['password','sessions']);
+  return _.omit(userObject, ['password', 'sessions']);
 };
 
 UserSchema.methods.generateAccessAuthToken = function () {
@@ -194,10 +194,10 @@ UserSchema.pre('save', function (next) {
   }
 });
 
-UserSchema.virtual('autogios',{
+UserSchema.virtual('autogios', {
   ref: 'Autogios',
-  localField:"_id",
-  foreignField: 'owner'
+  localField: '_id',
+  foreignField: 'owner',
 });
 
 const User = mongoose.model('User', UserSchema);

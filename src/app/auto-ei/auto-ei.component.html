@@ -1,109 +1,206 @@
+{{ diagnostic }}
 <div class="gios-wrapper">
   <h1>EI AUTOMATION</h1>
-  <div class="row row-header">
-    <div class="row-item">
-      <h1>Date</h1>
-    </div>
-    <div class="row-item">
-      <h1>Scripts Prepared</h1>
-    </div>
-    <div class="row-item">
-      <h1>Time Taken</h1>
-    </div>
-    <div class="row-item">
-      <h1>Scripts Executed</h1>
-    </div>
-    <div class="row-item">
-      <h1>Time Taken</h1>
-    </div>
-    <div class="row-item">
-      <h1>Defects Raised</h1>
-    </div>
-    <div class="row-item">
-      <h1>Downtime</h1>
-    </div>
-    <div class="row-item">
-      <h1>Other Activities</h1>
-    </div>
-    <div class="row-item">
-      <h1>Time Taken</h1>
-    </div>
-    <div class="row-item">
-      <h1>Remarks</h1>
-    </div>
-  </div>
-  <div>
-    <div class="row row-body">
-      <div class="row-item">
-        <div class="form-input">
-          <input type="date" />
-        </div>
-      </div>
-      <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
-      </div>
-      <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
-      </div>
-      <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
-      </div>
-      <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
-      </div>
-      <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
-      </div>
-      <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
-      </div>
-      <div class="row-item">
-        <div class="form-input">
-          <select>
-            <option *ngFor="let task of otherTasks" [value]="task">
-              {{ task }}
-            </option>
-          </select>
-        </div>
-      </div>
-      <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
-      </div>
-      <div class="row-item">
-        <div class="form-input">
-          <input type="text" />
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="footer">
-    <button>Submit</button>
-  </div>
-  <div class="footer">
-    <button
-      _ngcontent-slc-c17=""
-      _ngcontent-ipw-c17=""
-      type="submit"
-      (click)="cancel()"
-    >
-      Cancel
-    </button>
-  </div>
 
+  <form #autoEiForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row row-header">
+      <div class="row-item">
+        <h1>Date</h1>
+      </div>
+      <!-- =============================Scripts Prepared============================================= -->
+      <div class="row-item">
+        <h1>Scripts Prepared</h1>
+      </div>
+      <!-- =============================Scripts Prepared Time Taken============================================= -->
+      <div class="row-item">
+        <h1>Time Taken</h1>
+      </div>
+      <!-- =============================Scripts Executed============================================= -->
+      <div class="row-item">
+        <h1>Scripts Executed</h1>
+      </div>
+      <!-- =============================Scripts Executed Time Taken============================================= -->
+      <div class="row-item">
+        <h1>Time Taken</h1>
+      </div>
+      <!-- =============================Defects Raised============================================= -->
+      <div class="row-item">
+        <h1>Defects Raised</h1>
+      </div>
+      <!-- =============================Downtime============================================= -->
+      <div class="row-item">
+        <h1>Downtime</h1>
+      </div>
+      <!-- =============================Other Activities============================================= -->
+      <div class="row-item">
+        <h1>Other Activities</h1>
+      </div>
+      <!-- =============================Other Activities Time Taken============================================= -->
+      <div class="row-item">
+        <h1>Time Taken</h1>
+      </div>
+      <!-- =============================Remarks============================================= -->
+      <div class="row-item">
+        <h1>Remarks</h1>
+      </div>
+    </div>
+
+    <!-- ========================================================================== -->
+    <div>
+      <div class="row row-body">
+        <!-- =============================DATE============================================= -->
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="date"
+              id="eiDate"
+              [(ngModel)]="model.date"
+              name="date"
+              #eiDate
+            />
+          </div>
+        </div>
+
+        <!-- =============================Scripts Prepared============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="eiscriptsPrepared"
+              [(ngModel)]="model.scriptsPrepared"
+              name="scriptsPrepared"
+              #eiscriptsPrepared
+            />
+          </div>
+        </div>
+        <!-- =============================time taken============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="eiTimeTaken"
+              [(ngModel)]="model.scriptsPreparedTimeTaken"
+              name="timeTaken"
+              #eiTimeTaken
+            />
+          </div>
+        </div>
+        <!-- =============================scriptsExecuted============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="eiscriptsExecuted"
+              [(ngModel)]="model.scriptsExecuted"
+              name="scriptsExecuted"
+              #eiscriptsExecuted
+            />
+          </div>
+        </div>
+        <!-- =============================time taken============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="eiTimeTaken"
+              [(ngModel)]="model.scriptsExecutedTimeTaken"
+              name="timeTaken"
+              #eiTimeTaken
+            />
+          </div>
+        </div>
+        <!-- =============================defectsRaised============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="eidefectsRaised"
+              [(ngModel)]="model.defectsRaised"
+              name="defectsRaised"
+              #eidefectsRaised
+            />
+          </div>
+        </div>
+
+        <!-- =============================downTime============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="eidownTime"
+              [(ngModel)]="model.downtime"
+              name="downTime"
+              #eidownTime
+            />
+          </div>
+        </div>
+
+        <!-- =============================OtherActivities============================================= -->
+        <div class="row-item">
+          <div class="form-input">
+            <select
+              id="giosOtherActivities"
+              name="otherActivities"
+              [(ngModel)]="model.otherActivities"
+            >
+              <option *ngFor="let task of otherTasks" [value]="task">
+                {{ task }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <!-- =============================time taken============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="eiTimeTaken"
+              [(ngModel)]="model.otherActivitiesTimeTaken"
+              name="timeTaken"
+              #eiTimeTaken
+            />
+          </div>
+        </div>
+        <!-- =============================Remarks============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="text"
+              id="giosRemarks"
+              [(ngModel)]="model.remarks"
+              name="remarks"
+              #giosRemarks
+            />
+          </div>
+        </div>
+        <!-- =============================End============================================= -->
+      </div>
+    </div>
+
+    <div class="footer">
+      <button type="submit">Submit</button>
+    </div>
+    <!-- =============================Footer============================================= -->
+    <div class="footer">
+      <button
+        _ngcontent-slc-c17=""
+        _ngcontent-ipw-c17=""
+        type="submit"
+        (click)="cancel()"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
   <svg
     id="clouds"
     alt="Gray Clouds Background"

@@ -14,13 +14,13 @@ const AutoeiSchema = new mongoose.Schema({
   scriptsPrepared: {
     type: Number,
   },
-  timeTaken1: {
+  scriptsPreparedTimeTaken: {
     type: Number,
   },
   scriptsExecuted: {
     type: Number,
   },
-  timeTaken2: {
+  scriptsExecutedTimeTaken: {
     type: Number,
   },
   defectsRaised: {
@@ -33,7 +33,7 @@ const AutoeiSchema = new mongoose.Schema({
     type: String,
     trim: true,
   },
-  timeTaken3: {
+  otherActiviesTimeTaken: {
     type: Number,
   },
   remarks: {

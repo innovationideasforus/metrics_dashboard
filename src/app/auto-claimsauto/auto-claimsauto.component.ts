@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AutoClaims } from './autoclaims';
+import { AutoclaimsService } from '../autoclaims.service';
+import { HttpResponse } from '@angular/common/http';
+import { from } from 'rxjs';
 @Component({
   selector: 'app-auto-claimsauto',
   templateUrl: './auto-claimsauto.component.html',
@@ -32,12 +36,46 @@ export class AutoClaimsautoComponent implements OnInit {
     'Coordination with the onsite team',
     'Data Preparation',
   ];
-
   otherProjects = ['QTP', 'CTA'];
+  model: AutoClaims = new AutoClaims(
+    '2020-07-27',
+    'QTP',
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    'Calls',
+    1,
+    'REMARKS'
+  );
+
+  constructor(
+    private router: Router,
+    private autoclaimsService: AutoclaimsService
+  ) {}
+  ngOnInit(): void {}
+
   cancel() {
     this.router.navigate(['homepage']);
   }
-  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  onSubmit() {
+    this.autoclaimsService
+      .addClaimsAutomation(this.model)
+      .subscribe((res: HttpResponse<any>) => {
+        if (res.status === 200) {
+          // we have logged in successfully
+          console.log(res);
+          this.router.navigate(['autoclaims']);
+        }
+      });
+  }
+
+  get diagnostic() {
+    return JSON.stringify(this.model);
+  }
 }

@@ -1,27 +1,27 @@
 const express = require('express');
 const auth = require('../middleware/auth');
 const router = new express.Router();
-const { User, Autoei } = require('../models');
+const { User, Autoclaims } = require('../models');
 
-router.post('/autoei', auth, async (req, res) => {
+router.post('/autoclaims', auth, async (req, res) => {
   try {
-    const autoei = new Autoei({
+    const autoclaims = new Autoclaims({
       ...req.body,
       owner: req.user._id,
     });
-    await autoei.save();
+    await autoclaims.save();
     console.log('Data Saved!!!');
-    res.status(200).send(autoei);
+    res.status(200).send(autoclaims);
   } catch (e) {
     res.status(400).send({ error: 'Invalid request' });
   }
 });
 
-router.get('/autoei', auth, async (req, res) => {
+router.get('/autoclaims', auth, async (req, res) => {
   try {
     const user = req.user;
-    await user.populate('autoei').execPopulate();
-    res.status(200).send(user.autoei);
+    await user.populate('autoclaims').execPopulate();
+    res.status(200).send(user.autoclaims);
   } catch (e) {
     console.error(e);
     res.status(400).send(e);

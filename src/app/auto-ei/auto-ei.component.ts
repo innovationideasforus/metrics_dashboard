@@ -44,7 +44,7 @@ export class AutoeiComponent implements OnInit {
     1,
     1,
     1,
-    'calls',
+    'Calls',
     2,
     'REMARKS'
   );

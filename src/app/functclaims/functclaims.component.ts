@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FunClaims } from './funclaims';
+import { FunclaimsService } from '../funclaims.service';
+import { HttpResponse } from '@angular/common/http';
+import { from } from 'rxjs';
 @Component({
   selector: 'app-functclaims',
   templateUrl: './functclaims.component.html',
@@ -32,14 +36,53 @@ export class FunctclaimsComponent implements OnInit {
     'Coordination with the onsite team',
     'Data Preparation',
   ];
-  otherProjects = ['Data Retention Drop 3', 'Claims Integra'];
+  otherProjects = ['Data Retention', 'Claims Integra'];
   otherModules = ['IAS', 'Softco', 'PVS', 'Myvhi', 'PCCS'];
   otherRelease = ['Release 1', 'Release 2', 'Release 3'];
   otherAssigned = ['Geetha'];
+  model: FunClaims = new FunClaims(
+    '2020-07-27',
+    'Data Retention',
+    'IAS',
+    'Release 1',
+    'Geetha',
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    'Calls',
+    1,
+    'test'
+  );
+  constructor(
+    private router: Router,
+    private funclaimsService: FunclaimsService
+  ) {}
+
+  ngOnInit(): void {}
+
   cancel() {
     this.router.navigate(['homepage']);
   }
-  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  onSubmit() {
+    this.funclaimsService
+      .addFunclaimsAutomation(this.model)
+      .subscribe((res: HttpResponse<any>) => {
+        if (res.status === 200) {
+          // we have logged in successfully
+          console.log(res);
+          this.router.navigate(['autogios']);
+        }
+      });
+  }
+
+  get diagnostic() {
+    return JSON.stringify(this.model);
+  }
 }

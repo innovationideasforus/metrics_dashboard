@@ -1,183 +1,334 @@
+{{ diagnostic }}
 <div class="gios-wrapper">
   <h1>CLAIMS</h1>
-  <div class="row row-header">
-    <div class="row-item">
-      <h1>Date</h1>
-    </div>
-    <div class="row-item">
-      <h1>Projects</h1>
-    </div>
-    <div class="row-item">
-      <h1>Modules</h1>
-    </div>
-    <div class="row-item">
-      <h1>Release</h1>
-    </div>
-    <div class="row-item">
-      <h1>Assigned To</h1>
-    </div>
-    <div class="row-item">
-      <h1>Test Prep Planned</h1>
-    </div>
-    <div class="row-item">
-      <h1>Time Taken</h1>
-    </div>
-    <div class="row-item">
-      <h1>Test Prep Rework</h1>
-    </div>
-    <div class="row-item">
-      <h1>Time Taken</h1>
-    </div>
-    <div class="row-item">
-      <h1>pass</h1>
-    </div>
-    <div class="row-item">
-      <h1>Fail</h1>
-    </div>
-    <div class="row-item">
-      <h1>Hold</h1>
-    </div>
-    <div class="row-item">
-      <h1>Retest</h1>
-    </div>
-    <div class="row-item">
-      <h1>Downtime</h1>
-    </div>
-    <div class="row-item">
-      <h1>Other Activities</h1>
-    </div>
-    <div class="row-item">
-      <h1>Time Taken</h1>
-    </div>
-    <div class="row-item">
-      <h1>Remarks</h1>
-    </div>
-  </div>
-  <div>
-    <div class="row row-body">
+
+  <form #autoGiosForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row row-header">
       <div class="row-item">
-        <div class="form-input">
-          <input type="date" />
-        </div>
+        <h1>Date</h1>
       </div>
 
+      <!-- =============================Projects============================================= -->
       <div class="row-item">
-        <div class="form-input">
-          <select>
-            <option *ngFor="let task of otherProjects" [value]="task">
-              {{ task }}
-            </option>
-          </select>
-        </div>
+        <h1>Projects</h1>
       </div>
+      <!-- =============================Modules============================================= -->
       <div class="row-item">
-        <div class="form-input">
-          <select>
-            <option *ngFor="let task of otherModules" [value]="task">
-              {{ task }}
-            </option>
-          </select>
-        </div>
+        <h1>Modules</h1>
       </div>
-
+      <!-- =============================Releases============================================= -->
       <div class="row-item">
-        <div class="form-input">
-          <select>
-            <option *ngFor="let task of otherRelease" [value]="task">
-              {{ task }}
-            </option>
-          </select>
-        </div>
+        <h1>Release</h1>
       </div>
+      <!-- =============================Assigned To ============================================= -->
       <div class="row-item">
-        <div class="form-input">
-          <select>
-            <option *ngFor="let task of otherAssigned" [value]="task">
-              {{ task }}
-            </option>
-          </select>
-        </div>
+        <h1>Assigned To</h1>
       </div>
+      <!-- =============================test Prep planned ============================================= -->
       <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
+        <h1>Test Prep Planned</h1>
       </div>
+      <!-- =============================Time Taken ============================================= -->
       <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
+        <h1>Time Taken</h1>
       </div>
+      <!-- =============================test Prep Rework ============================================= -->
       <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
+        <h1>Test Prep Rework</h1>
       </div>
+      <!-- =============================Time Taken============================================= -->
       <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
+        <h1>Time Taken</h1>
       </div>
+      <!-- =============================Pass============================================= -->
       <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
+        <h1>pass</h1>
       </div>
+      <!-- =============================Fail============================================= -->
       <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
+        <h1>Fail</h1>
       </div>
+      <!-- =============================Hold============================================= -->
       <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
+        <h1>Hold</h1>
       </div>
+      <!-- =============================Retest============================================= -->
       <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
+        <h1>Retest</h1>
       </div>
+      <!-- =============================Dwontime============================================= -->
       <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
+        <h1>Downtime</h1>
       </div>
-
+      <!-- =============================Other Actitives ============================================= -->
       <div class="row-item">
-        <div class="form-input">
-          <select>
-            <option *ngFor="let task of otherTasks" [value]="task">
-              {{ task }}
-            </option>
-          </select>
-        </div>
+        <h1>Other Activities</h1>
       </div>
+      <!-- =============================TIme Taken============================================= -->
       <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
+        <h1>Time Taken</h1>
       </div>
+      <!-- =============================Remarks============================================= -->
       <div class="row-item">
-        <div class="form-input">
-          <input type="text" />
-        </div>
+        <h1>Remarks</h1>
       </div>
     </div>
-  </div>
-  <div class="footer">
-    <button>Submit</button>
-  </div>
-  <div class="footer">
-    <button
-      _ngcontent-slc-c17=""
-      _ngcontent-ipw-c17=""
-      type="submit"
-      (click)="cancel()"
-    >
-      Cancel
-    </button>
-  </div>
+    <!-- ========================================================================== -->
+    <div>
+      <div class="row row-body">
+        <!-- =============================DATE============================================= -->
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="date"
+              id="funclaimsDate"
+              [(ngModel)]="model.date"
+              name="date"
+              #funclaimsDate
+            />
+          </div>
+        </div>
+        <!-- =============================OtherProjects============================================= -->
+        <div class="row-item">
+          <div class="form-input">
+            <select
+              id="funclaimsOtherProjects"
+              name="otherProjects"
+              [(ngModel)]="model.projects"
+            >
+              <option *ngFor="let task of otherProjects" [value]="task">
+                {{ task }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <!-- =============================OtherModules============================================= -->
+        <div class="row-item">
+          <div class="form-input">
+            <select
+              id="funclaimsOtherModules"
+              name="othermodules"
+              [(ngModel)]="model.modules"
+            >
+              <option *ngFor="let task of otherModules" [value]="task">
+                {{ task }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <!-- =============================OtherRelease============================================= -->
+        <div class="row-item">
+          <div class="form-input">
+            <select
+              id="funclaimsOtherRelease"
+              name="otherRelease"
+              [(ngModel)]="model.release"
+            >
+              <option *ngFor="let task of otherRelease" [value]="task">
+                {{ task }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <!-- =============================OtherAssigned============================================= -->
+        <div class="row-item">
+          <div class="form-input">
+            <select
+              id="funclaimsassignedTo"
+              name="assignedTo"
+              [(ngModel)]="model.assignedTo"
+            >
+              <option *ngFor="let task of otherAssigned" [value]="task">
+                {{ task }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <!-- =============================Test Prep Planned ============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funclaimstestPrepPlanned"
+              [(ngModel)]="model.testPrepPlanned"
+              name="testPrepPlanned"
+              #funclaimstestPrepPlanned
+            />
+          </div>
+        </div>
+        <!-- =============================Test Prep planned time taken============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funclaimstestPrepPlannedTimeTaken"
+              [(ngModel)]="model.testPrepPlannedTimeTaken"
+              name="testPrepPlannedTimeTaken"
+              #funclaimstestPrepPlannedTimeTaken
+            />
+          </div>
+        </div>
+
+        <!-- =============================Test Prep Rework ============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funclaimstestPrepRework"
+              [(ngModel)]="model.testPrepRework"
+              name="testPrepRework"
+              #funclaimstestPrepRework
+            />
+          </div>
+        </div>
+        <!-- =============================Test Prep Rework time taken============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funclaimstestPrepReworkTimeTaken"
+              [(ngModel)]="model.testPrepReworkTimeTaken"
+              name="testPrepReworkTimeTaken"
+              #funclaimstestPrepReworkTimeTaken
+            />
+          </div>
+        </div>
+
+        <!-- =============================Pass============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funclaimspass"
+              [(ngModel)]="model.pass"
+              name="pass"
+              #funclaimspass
+            />
+          </div>
+        </div>
+
+        <!-- =============================Fail============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funclaimsfail"
+              [(ngModel)]="model.fail"
+              name="fail"
+              #funclaimsfail
+            />
+          </div>
+        </div>
+
+        <!-- =============================Hold============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funclaimshold"
+              [(ngModel)]="model.hold"
+              name="hold"
+              #funclaimshold
+            />
+          </div>
+        </div>
+
+        <!-- =============================Retest============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funclaimsretest"
+              [(ngModel)]="model.retest"
+              name="retest"
+              #funclaimsretest
+            />
+          </div>
+        </div>
+
+        <!-- =============================Downtime============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funclaimsdownTime"
+              [(ngModel)]="model.downTime"
+              name="downTime"
+              #funclaimsdownTime
+            />
+          </div>
+        </div>
+
+        <!-- =============================OtherActivities============================================= -->
+        <div class="row-item">
+          <div class="form-input">
+            <select
+              id="funclaimsOtherActivities"
+              name="otherActivities"
+              [(ngModel)]="model.otherActivities"
+            >
+              <option *ngFor="let task of otherTasks" [value]="task">
+                {{ task }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <!-- =============================Other Activities time taken============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funclaimsotherActivitiesTimeTaken"
+              [(ngModel)]="model.otherActivitiesTimeTaken"
+              name="otherActivitiesTimeTaken"
+              #funclaimsotherActivitiesTimeTaken
+            />
+          </div>
+        </div>
+
+        <!-- =============================Remarks============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="text"
+              id="funclaimsRemarks"
+              [(ngModel)]="model.remarks"
+              name="remarks"
+              #funclaimsRemarks
+            />
+          </div>
+        </div>
+        <!-- =============================End============================================= -->
+      </div>
+    </div>
+    <div class="footer">
+      <button>Submit</button>
+    </div>
+    <!-- =============================Footer============================================= -->
+    <div class="footer">
+      <button
+        _ngcontent-slc-c17=""
+        _ngcontent-ipw-c17=""
+        type="submit"
+        (click)="cancel()"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
 
   <svg
     id="clouds"

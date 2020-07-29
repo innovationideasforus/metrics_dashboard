@@ -9,12 +9,14 @@ const { User } = require('./models');
 const { autoei } = require('./models/autoei.model');
 const { autogios } = require('./models/autogios.model');
 const { autoclaims } = require('./models/autoclaims.model');
+const { funclaims } = require('./models/funclaims.model');
 
 // Load User Routes
 const userRouter = require('./routers/user');
 const autogiosRouter = require('./routers/autogios');
 const autoeiRouter = require('./routers/autoei');
 const autoclaimsRouter = require('./routers/autoclaims');
+const funclaimsRouter = require('./routers/funclaims');
 
 const app = express();
 /*
@@ -57,4 +59,5 @@ app.use(express.json());
 app.use(userRouter, autogiosRouter);
 app.use(userRouter, autoeiRouter);
 app.use(userRouter, autoclaimsRouter);
+app.use(userRouter, funclaimsRouter);
 app.listen(3000, () => console.log('Server Connected On Port 3000'));

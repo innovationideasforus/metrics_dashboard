@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AutoGios } from './autogios/autogios';
 import { AutoEi } from './auto-ei/autoei';
 import { AutoClaims } from './auto-claimsauto/autoclaims';
+import { FunClaims } from './functclaims/funclaims';
 
 @Injectable({
   providedIn: 'root',
@@ -65,6 +66,17 @@ export class WebRequestService {
   addClaimsAutomation(autoclaims: AutoClaims) {
     let url = `${this.ROOT_URL}/autoclaims`;
     let body = autoclaims;
+    let headers = new HttpHeaders({
+      'x-access-token': localStorage.getItem('x-access-token'),
+      'x-refresh-token': localStorage.getItem('x-refresh-token'),
+    });
+    let options = { headers: headers };
+    return this.http.post(url, body, options);
+  }
+
+  addFunclaimsAutomation(funclaims: FunClaims) {
+    let url = `${this.ROOT_URL}/funclaims`;
+    let body = funclaims;
     let headers = new HttpHeaders({
       'x-access-token': localStorage.getItem('x-access-token'),
       'x-refresh-token': localStorage.getItem('x-refresh-token'),

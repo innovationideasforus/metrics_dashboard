@@ -4,6 +4,9 @@ import { AutoGios } from './autogios/autogios';
 import { AutoEi } from './auto-ei/autoei';
 import { AutoClaims } from './auto-claimsauto/autoclaims';
 import { FunClaims } from './functclaims/funclaims';
+import { FunCusComms } from './functcuscomms/funcuscomms';
+import { FunMobile } from './functmobile/funmobile';
+import { FunWeb } from './functweb/funweb';
 
 @Injectable({
   providedIn: 'root',
@@ -74,9 +77,42 @@ export class WebRequestService {
     return this.http.post(url, body, options);
   }
 
-  addFunclaimsAutomation(funclaims: FunClaims) {
+  addFunclaimsFunctional(funclaims: FunClaims) {
     let url = `${this.ROOT_URL}/funclaims`;
     let body = funclaims;
+    let headers = new HttpHeaders({
+      'x-access-token': localStorage.getItem('x-access-token'),
+      'x-refresh-token': localStorage.getItem('x-refresh-token'),
+    });
+    let options = { headers: headers };
+    return this.http.post(url, body, options);
+  }
+
+  addFuncuscommsFunctional(funcuscomms: FunCusComms) {
+    let url = `${this.ROOT_URL}/funcuscomms`;
+    let body = funcuscomms;
+    let headers = new HttpHeaders({
+      'x-access-token': localStorage.getItem('x-access-token'),
+      'x-refresh-token': localStorage.getItem('x-refresh-token'),
+    });
+    let options = { headers: headers };
+    return this.http.post(url, body, options);
+  }
+
+  addFunmobileFunctional(funmobile: FunMobile) {
+    let url = `${this.ROOT_URL}/funmobile`;
+    let body = funmobile;
+    let headers = new HttpHeaders({
+      'x-access-token': localStorage.getItem('x-access-token'),
+      'x-refresh-token': localStorage.getItem('x-refresh-token'),
+    });
+    let options = { headers: headers };
+    return this.http.post(url, body, options);
+  }
+
+  addFunwebFunctional(funweb: FunWeb) {
+    let url = `${this.ROOT_URL}/funweb`;
+    let body = funweb;
     let headers = new HttpHeaders({
       'x-access-token': localStorage.getItem('x-access-token'),
       'x-refresh-token': localStorage.getItem('x-refresh-token'),

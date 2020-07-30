@@ -64,7 +64,7 @@ export class AutoeiComponent implements OnInit {
         if (res.status === 200) {
           // we have logged in successfully
           console.log(res);
-          this.router.navigate(['autoei']);
+          this.router.navigate(['homepage']);
         }
       });
   }

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FunCusComms } from './funcuscomms';
+import { FuncuscommsService } from '../funcuscomms.service';
+import { HttpResponse } from '@angular/common/http';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-functcuscomms',
@@ -35,10 +39,47 @@ export class FunctcuscommsComponent implements OnInit {
   ];
   otherProjects = ['BAU', 'EE', 'GIOS Controls'];
   otherAssigned = ['Saravanan', 'Dhrubo', 'Sathish'];
+  model: FunCusComms = new FunCusComms(
+    '2020-07-27',
+    'BAU',
+    'Dhrubo',
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    'Calls',
+    1,
+    'test'
+  );
+  constructor(
+    private router: Router,
+    private funcuscommsService: FuncuscommsService
+  ) {}
+
+  ngOnInit(): void {}
+
   cancel() {
     this.router.navigate(['homepage']);
   }
-  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  onSubmit() {
+    this.funcuscommsService
+      .addFuncuscommsFunctional(this.model)
+      .subscribe((res: HttpResponse<any>) => {
+        if (res.status === 200) {
+          // we have logged in successfully
+          console.log(res);
+          this.router.navigate(['homepage']);
+        }
+      });
+  }
+
+  get diagnostic() {
+    return JSON.stringify(this.model);
+  }
 }

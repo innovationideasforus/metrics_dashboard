@@ -72,12 +72,12 @@ export class FunctclaimsComponent implements OnInit {
 
   onSubmit() {
     this.funclaimsService
-      .addFunclaimsAutomation(this.model)
+      .addFunclaimsFunctional(this.model)
       .subscribe((res: HttpResponse<any>) => {
         if (res.status === 200) {
           // we have logged in successfully
           console.log(res);
-          this.router.navigate(['autogios']);
+          this.router.navigate(['homepage']);
         }
       });
   }

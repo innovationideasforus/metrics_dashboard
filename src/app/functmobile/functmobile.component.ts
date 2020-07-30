@@ -35,12 +35,20 @@ export class FunctmobileComponent implements OnInit {
 
   otherProjects = [
     'Wellness Release 3',
+    'Wellness Release 4',
+    'Q3 2020',
     '  Online Doctor Phase 1',
     '    Online Doctor Phase 2',
     '    Online Doctor Phase 3',
     '    Online Doctor Phase 4',
   ];
-  otherAssigned = ['Vasanth', 'Chakrapani', 'Rajat', 'Sangeetha'];
+  otherAssigned = [
+    'Vasanth',
+    'Chakrapani',
+    'Ninobertina',
+    'Sangeetha',
+    'Sindiya',
+  ];
   cancel() {
     this.router.navigate(['homepage']);
   }

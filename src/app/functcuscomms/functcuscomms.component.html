@@ -1,3 +1,4 @@
+{{ diagnostic }}
 <div class="gios-wrapper">
   <h1>CUSCOMMS</h1>
 
@@ -100,7 +101,7 @@
         <div class="row-item">
           <div class="form-input">
             <select
-              id="funclaimsassignedTo"
+              id="funcuscommsassignedTo"
               name="assignedTo"
               [(ngModel)]="model.assignedTo"
             >
@@ -110,74 +111,175 @@
             </select>
           </div>
         </div>
+        <!-- =============================Test Prep Planned ============================================= -->
 
         <div class="row-item">
           <div class="form-input">
-            <input type="number" />
-          </div>
-        </div>
-        <div class="row-item">
-          <div class="form-input">
-            <input type="number" />
-          </div>
-        </div>
-        <div class="row-item">
-          <div class="form-input">
-            <input type="number" />
-          </div>
-        </div>
-        <div class="row-item">
-          <div class="form-input">
-            <input type="number" />
-          </div>
-        </div>
-        <div class="row-item">
-          <div class="form-input">
-            <input type="number" />
-          </div>
-        </div>
-        <div class="row-item">
-          <div class="form-input">
-            <input type="number" />
-          </div>
-        </div>
-        <div class="row-item">
-          <div class="form-input">
-            <input type="number" />
-          </div>
-        </div>
-        <div class="row-item">
-          <div class="form-input">
-            <input type="number" />
-          </div>
-        </div>
-        <div class="row-item">
-          <div class="form-input">
-            <input type="number" />
+            <input
+              type="number"
+              id="funcuscommstestPrepPlanned"
+              [(ngModel)]="model.testPrepPlanned"
+              name="testPrepPlanned"
+              #funcuscommstestPrepPlanned
+            />
           </div>
         </div>
 
+        <!-- =============================Test Prep planned time taken============================================= -->
+
         <div class="row-item">
           <div class="form-input">
-            <select>
+            <input
+              type="number"
+              id="funcuscommstestPrepPlannedTimeTaken"
+              [(ngModel)]="model.testPrepPlannedTimeTaken"
+              name="testPrepPlannedTimeTaken"
+              #funcuscommstestPrepPlannedTimeTaken
+            />
+          </div>
+        </div>
+        <!-- =============================Test Prep Rework ============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funcuscommstestPrepRework"
+              [(ngModel)]="model.testPrepRework"
+              name="testPrepRework"
+              #funcuscommstestPrepRework
+            />
+          </div>
+        </div>
+        <!-- =============================Test Prep Rework time taken============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funcuscommstestPrepReworkTimeTaken"
+              [(ngModel)]="model.testPrepReworkTimeTaken"
+              name="testPrepReworkTimeTaken"
+              #funcuscommstestPrepReworkTimeTaken
+            />
+          </div>
+        </div>
+
+        <!-- =============================Pass============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funcuscommspass"
+              [(ngModel)]="model.pass"
+              name="pass"
+              #funcuscommspass
+            />
+          </div>
+        </div>
+
+        <!-- =============================Fail============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funcuscommsfail"
+              [(ngModel)]="model.fail"
+              name="fail"
+              #funcuscommsfail
+            />
+          </div>
+        </div>
+
+        <!-- =============================Hold============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funcuscommshold"
+              [(ngModel)]="model.hold"
+              name="hold"
+              #funcuscommshold
+            />
+          </div>
+        </div>
+
+        <!-- =============================Retest============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funcuscommsretest"
+              [(ngModel)]="model.retest"
+              name="retest"
+              #funcuscommsretest
+            />
+          </div>
+        </div>
+
+        <!-- =============================Downtime============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funcuscommsdownTime"
+              [(ngModel)]="model.downTime"
+              name="downTime"
+              #funcuscommsdownTime
+            />
+          </div>
+        </div>
+
+        <!-- =============================OtherActivities============================================= -->
+        <div class="row-item">
+          <div class="form-input">
+            <select
+              id="funcuscommsOtherActivities"
+              name="otherActivities"
+              [(ngModel)]="model.otherActivities"
+            >
               <option *ngFor="let task of otherTasks" [value]="task">
                 {{ task }}
               </option>
             </select>
           </div>
         </div>
+        <!-- =============================Other Activities time taken============================================= -->
+
         <div class="row-item">
           <div class="form-input">
-            <input type="number" />
+            <input
+              type="number"
+              id="funcuscommsotherActivitiesTimeTaken"
+              [(ngModel)]="model.otherActivitiesTimeTaken"
+              name="otherActivitiesTimeTaken"
+              #funcuscommsotherActivitiesTimeTaken
+            />
           </div>
         </div>
+
+        <!-- =============================Remarks============================================= -->
+
         <div class="row-item">
           <div class="form-input">
-            <input type="text" />
+            <input
+              type="text"
+              id="funcuscommsRemarks"
+              [(ngModel)]="model.remarks"
+              name="remarks"
+              #funcuscommsRemarks
+            />
+            <!-- =============================End============================================= -->
           </div>
         </div>
       </div>
     </div>
+    <!-- =============================Footer============================================= -->
     <div class="footer">
       <button>Submit</button>
     </div>

@@ -6,6 +6,7 @@ export class FunWeb {
     public testCaseExecuted: number,
     public testCaseExecutedTimeTaken: number,
     public defectRaised: number,
+    public downTime: number,
     public otherActivities: string,
     public otherActivitiesTimeTaken: number,
     public remarks: string

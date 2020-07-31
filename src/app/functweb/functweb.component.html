@@ -1,111 +1,205 @@
+{{ diagnostic }}
 <div class="gios-wrapper">
   <h1>WEB MODULE</h1>
-  <div class="row row-header">
-    <div class="row-item">
-      <h1>Date</h1>
-    </div>
-    <div class="row-item">
-      <h1>Test Prep Planned</h1>
-    </div>
-    <div class="row-item">
-      <h1>Time Taken</h1>
-    </div>
-    <div class="row-item">
-      <h1>Test case Executed</h1>
-    </div>
-    <div class="row-item">
-      <h1>Time Taken</h1>
-    </div>
-    <div class="row-item">
-      <h1>Defects Raised</h1>
-    </div>
-    <div class="row-item">
-      <h1>Downtime</h1>
-    </div>
-    <div class="row-item">
-      <h1>Other Activities</h1>
-    </div>
-    <div class="row-item">
-      <h1>Time Taken</h1>
-    </div>
-    <div class="row-item">
-      <h1>Remarks</h1>
-    </div>
-  </div>
-  <div>
-    <div class="row row-body">
+  <form #autoGiosForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row row-header">
+      <!-- =============================Date============================================= -->
       <div class="row-item">
-        <div class="form-input">
-          <input type="date" />
-        </div>
+        <h1>Date</h1>
       </div>
+      <!-- =============================Test Prep Plannned============================================= -->
+      <div class="row-item">
+        <h1>Test Prep Planned</h1>
+      </div>
+      <!-- =============================Test Prep Plannned Time Taken============================================= -->
+      <div class="row-item">
+        <h1>Time Taken</h1>
+      </div>
+      <!-- =============================Test Case Executed============================================= -->
+      <div class="row-item">
+        <h1>Test case Executed</h1>
+      </div>
+      <!-- =============================Test Case Executed Time Taken============================================= -->
+      <div class="row-item">
+        <h1>Time Taken</h1>
+      </div>
+      <!-- =============================Defects Raised============================================= -->
+      <div class="row-item">
+        <h1>Defects Raised</h1>
+      </div>
+      <!-- =============================Downtime============================================= -->
+      <div class="row-item">
+        <h1>Downtime</h1>
+      </div>
+      <!-- =============================Other Activities ============================================ -->
+      <div class="row-item">
+        <h1>Other Activities</h1>
+      </div>
+      <!-- =============================Other Activities Time Taken============================================ -->
+      <div class="row-item">
+        <h1>Time Taken</h1>
+      </div>
+      <!-- =============================Remarks============================================ -->
+      <div class="row-item">
+        <h1>Remarks</h1>
+      </div>
+    </div>
+    <!-- =============================End============================================ -->
+    <div>
+      <div class="row row-body">
+        <!-- =============================DATE============================================= -->
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="date"
+              id="funwebDate"
+              [(ngModel)]="model.date"
+              name="date"
+              #funclaimsDate
+            />
+          </div>
+        </div>
 
-      <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
-      </div>
+        <!-- =============================Test Prep Planned ============================================= -->
 
-      <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funwebtestPrepPlanned"
+              [(ngModel)]="model.testPrepPlanned"
+              name="testPrepPlanned"
+              #funwebtestPrepPlanned
+            />
+          </div>
         </div>
-      </div>
-      <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
-      </div>
-      <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
-      </div>
-      <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
-      </div>
-      <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
-        </div>
-      </div>
+        <!-- =============================Test Prep planned time taken============================================= -->
 
-      <div class="row-item">
-        <div class="form-input">
-          <select>
-            <option *ngFor="let task of otherTasks" [value]="task">
-              {{ task }}
-            </option>
-          </select>
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funwebtestPrepPlannedTimeTaken"
+              [(ngModel)]="model.testPrepPlannedTimeTaken"
+              name="testPrepPlannedTimeTaken"
+              #funwebtestPrepPlannedTimeTaken
+            />
+          </div>
         </div>
-      </div>
-      <div class="row-item">
-        <div class="form-input">
-          <input type="number" />
+        <!-- =============================Test Case Executed ============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funwebtestPrepPlanned"
+              [(ngModel)]="model.testCaseExecuted"
+              name="testCaseExecuted"
+              #funwebtestPrepPlanned
+            />
+          </div>
         </div>
-      </div>
-      <div class="row-item">
-        <div class="form-input">
-          <input type="text" />
+        <!-- =============================Test Case Executed time taken============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funwebtestCaseExecutedTimeTaken"
+              [(ngModel)]="model.testCaseExecutedTimeTaken"
+              name="testCaseExecutedTimeTaken"
+              #funwebtestCaseExecutedTimeTaken
+            />
+          </div>
         </div>
+        <!-- =============================Defects Raised============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="fenwebdefectRaised"
+              [(ngModel)]="model.defectRaised"
+              name="defectRaised"
+              #fenwebdefectRaised
+            />
+          </div>
+        </div>
+
+        <!-- =============================Downtime============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funwebdownTime"
+              [(ngModel)]="model.downTime"
+              name="downTime"
+              #funwebdownTime
+            />
+          </div>
+        </div>
+
+        <!-- =============================OtherActivities============================================= -->
+        <div class="row-item">
+          <div class="form-input">
+            <select
+              id="funwebOtherActivities"
+              name="otherActivities"
+              [(ngModel)]="model.otherActivities"
+            >
+              <option *ngFor="let task of otherTasks" [value]="task">
+                {{ task }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <!-- =============================Other Activities time taken============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="number"
+              id="funwebotherActivitiesTimeTaken"
+              [(ngModel)]="model.otherActivitiesTimeTaken"
+              name="otherActivitiesTimeTaken"
+              #funwebotherActivitiesTimeTaken
+            />
+          </div>
+        </div>
+
+        <!-- =============================Remarks============================================= -->
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="text"
+              id="funwebRemarks"
+              [(ngModel)]="model.remarks"
+              name="remarks"
+              #funwebRemarks
+            />
+          </div>
+        </div>
+        <!-- =============================End============================================= -->
       </div>
     </div>
-  </div>
-  <div class="footer">
-    <button>Submit</button>
-  </div>
-  <div class="footer">
-    <button
-      _ngcontent-slc-c17=""
-      _ngcontent-ipw-c17=""
-      type="submit"
-      (click)="cancel()"
-    >
-      Cancel
-    </button>
-  </div>
+    <!-- =============================Footer============================================= -->
+    <div class="footer">
+      <button>Submit</button>
+    </div>
+    <!-- =============================End============================================= -->
+    <div class="footer">
+      <button
+        _ngcontent-slc-c17=""
+        _ngcontent-ipw-c17=""
+        type="submit"
+        (click)="cancel()"
+      >
+        Cancel
+      </button>
+    </div>
+  </form>
   <svg
     id="clouds"
     alt="Gray Clouds Background"

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FunWeb } from './funweb';
+import { FunwebService } from '../funweb.service';
+import { HttpResponse } from '@angular/common/http';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-functweb',
@@ -33,10 +37,39 @@ export class FunctwebComponent implements OnInit {
     'Coordination with the onsite team',
     'Data Preparation',
   ];
+  model: FunWeb = new FunWeb(
+    '2020-07-27',
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    'Calls',
+    1,
+    'test'
+  );
+  constructor(private router: Router, private funwebService: FunwebService) {}
+
+  ngOnInit(): void {}
+
   cancel() {
     this.router.navigate(['homepage']);
   }
-  constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  onSubmit() {
+    this.funwebService
+      .addFunwebFunctional(this.model)
+      .subscribe((res: HttpResponse<any>) => {
+        if (res.status === 200) {
+          // we have logged in successfully
+          console.log(res);
+          this.router.navigate(['homepage']);
+        }
+      });
+  }
+
+  get diagnostic() {
+    return JSON.stringify(this.model);
+  }
 }

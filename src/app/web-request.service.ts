@@ -44,15 +44,14 @@ export class WebRequestService {
     );
   }
 
-  addGiosAutomation(autogios: AutoGios) {
+  addGiosAutomation(autogios: AutoGios[])  {
     let url = `${this.ROOT_URL}/autogios`;
     let body = autogios;
     let headers = new HttpHeaders({
       'x-access-token': localStorage.getItem('x-access-token'),
       'x-refresh-token': localStorage.getItem('x-refresh-token'),
     });
-    let options = { headers: headers };
-    return this.http.post(url, body, options);
+    return this.http.post(url, body, {headers: headers, observe: 'response'});
   }
 
   addEiAutomation(autoei: AutoEi) {
@@ -63,7 +62,7 @@ export class WebRequestService {
       'x-refresh-token': localStorage.getItem('x-refresh-token'),
     });
     let options = { headers: headers };
-    return this.http.post(url, body, options);
+    return this.http.post(url, body, {headers: headers, observe: 'response'});
   }
 
   addClaimsAutomation(autoclaims: AutoClaims) {
@@ -74,7 +73,7 @@ export class WebRequestService {
       'x-refresh-token': localStorage.getItem('x-refresh-token'),
     });
     let options = { headers: headers };
-    return this.http.post(url, body, options);
+    return this.http.post(url, body, {headers: headers, observe: 'response'});
   }
 
   addFunclaimsFunctional(funclaims: FunClaims) {
@@ -85,7 +84,7 @@ export class WebRequestService {
       'x-refresh-token': localStorage.getItem('x-refresh-token'),
     });
     let options = { headers: headers };
-    return this.http.post(url, body, options);
+    return this.http.post(url, body, {headers: headers, observe: 'response'});
   }
 
   addFuncuscommsFunctional(funcuscomms: FunCusComms) {
@@ -96,7 +95,7 @@ export class WebRequestService {
       'x-refresh-token': localStorage.getItem('x-refresh-token'),
     });
     let options = { headers: headers };
-    return this.http.post(url, body, options);
+    return this.http.post(url, body, {headers: headers, observe: 'response'});
   }
 
   addFunmobileFunctional(funmobile: FunMobile) {
@@ -107,7 +106,7 @@ export class WebRequestService {
       'x-refresh-token': localStorage.getItem('x-refresh-token'),
     });
     let options = { headers: headers };
-    return this.http.post(url, body, options);
+    return this.http.post(url, body, {headers: headers, observe: 'response'});
   }
 
   addFunwebFunctional(funweb: FunWeb) {
@@ -118,6 +117,6 @@ export class WebRequestService {
       'x-refresh-token': localStorage.getItem('x-refresh-token'),
     });
     let options = { headers: headers };
-    return this.http.post(url, body, options);
+    return this.http.post(url, body, {headers: headers, observe: 'response'});
   }
 }

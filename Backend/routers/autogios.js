@@ -10,14 +10,19 @@ router.get('/testAuth', auth, (req, res) => {
 
 router.post('/autogios', auth, async (req, res) => {
   try {
-    const autoGios = new Autogios({
-      ...req.body,
-      owner: req.user._id,
-    });
-    await autoGios.save();
-    console.log('Data Saved!!!');
-    res.status(200).send(autoGios);
+    let autoGiosArr = req.body;
+    let dbAutoGiosArr = [];
+    for(autoGios of autoGiosArr){
+      dbAutoGiosArr.push(new Autogios({
+        ...autoGios,
+        owner: req.user._id,
+      }));
+    }
+    let savedDoc = await Autogios.insertMany(dbAutoGiosArr);
+    // console.log('Data Saved!!!');
+    res.status(200).send(savedDoc);
   } catch (e) {
+    console.error(e);
     res.status(400).send({ error: 'Invalid request' });
   }
 });

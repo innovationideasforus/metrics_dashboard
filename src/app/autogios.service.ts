@@ -15,7 +15,7 @@ export class AutogiosService {
     private http: HttpClient
   ) {}
 
-  addGiosAutomation(autogios: AutoGios) {
+  addGiosAutomation(autogios: AutoGios[]) {
     return this.webService.addGiosAutomation(autogios).pipe(
       shareReplay(),
       tap((res: HttpResponse<any>) => {

@@ -125,9 +125,48 @@
             />
           </div>
         </div>
+        <div class="row-item sml-mrgn-lft">
+          <button type="submit" class="sml-btn" (click)="addGios(model)">Add</button>
+        </div>
       </div>
     </div>
 
+<div *ngIf="autoGiosItems.length > 0">
+  <div class="row row-body" *ngFor="let item of autoGiosItems; index as i">
+    <div class="row-item">
+      <p>{{item.date}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.testCaseFixed}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.testCaseExecuted}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.defectRaised}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.downtime}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.otherActivities}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.task}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.timeTaken}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.remarks}}</p>
+    </div>
+    <a class="removeBtn" (click)="removeGios(i)">Remove</a>
+  </div>
+</div>
+    
+
+
+    <div *ngIf="autoGiosItems.length > 0">
     <div class="footer">
       <button type="submit">Submit</button>
     </div>
@@ -142,6 +181,7 @@
         Cancel
       </button>
     </div>
+  </div>
   </form>
   <svg
     id="clouds"

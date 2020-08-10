@@ -30,7 +30,54 @@ select {
   outline: none;
   border: none;
   border-radius: 4px;
+  cursor: pointer;
 }
+
+.sml-btn{
+  padding: 10px;
+  background: #28a745;
+  color: #fff;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sml-btn:hover{
+  padding: 10px;
+  background: #218838;
+  border-color: #1e7e34;
+  color: #fff;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.removeBtn{
+  box-sizing: border-box;
+  display: inline-block;
+  height: 25px;
+  width:60px;
+  text-align: center;
+  background-color: #dc3545;
+  border-color:#dc3545 ;
+  color: #fff;
+  border-radius: 5%;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.removeBtn:hover{
+  background-color: #c82333;
+  border-color:#bd2130 ;
+}
+.sml-mrgn-lft{
+  margin-left: 15px;
+}
+
 svg#clouds {
   position: fixed;
   bottom: -160px;

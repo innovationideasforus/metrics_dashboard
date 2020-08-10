@@ -4,6 +4,7 @@ import { AutoGios } from './autogios';
 import { AutogiosService } from '../autogios.service';
 import { HttpResponse } from '@angular/common/http';
 import { from } from 'rxjs';
+import { newArray } from '@angular/compiler/src/util';
 @Component({
   selector: 'app-autogios',
   templateUrl: './autogios.component.html',
@@ -37,13 +38,15 @@ export class AutogiosComponent implements OnInit {
     'Data Preparation',
   ];
   model: AutoGios = new AutoGios('2020-07-27', 1, 2, 3, 4, 5, 'Calls');
+  autoGiosItems:AutoGios[] = [];
 
   constructor(
     private router: Router,
     private autogiosService: AutogiosService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   cancel() {
     this.router.navigate(['homepage']);
@@ -51,14 +54,30 @@ export class AutogiosComponent implements OnInit {
 
   onSubmit() {
     this.autogiosService
-      .addGiosAutomation(this.model)
+      .addGiosAutomation(this.autoGiosItems)
       .subscribe((res: HttpResponse<any>) => {
         if (res.status === 200) {
-          // we have logged in successfully
-          console.log(res);
-          this.router.navigate(['autogios']);
+          console.log("Here status code is 200!");
+          this.router.navigateByUrl('/homepage', { skipLocationChange: true }).then(() => {
+            this.router.navigate(['autogios']);
+        });
         }
       });
+  }
+
+  addGios(modObj){
+    console.log("Model Here is:"+JSON.stringify(modObj));
+    
+    this.autoGiosItems.push({...modObj});
+    console.log("Array Item is:"+JSON.stringify(this.autoGiosItems));
+    return false;
+  }
+
+  removeGios(index: number) {
+    if (this.autoGiosItems.length > 0) {
+      this.autoGiosItems.splice(index, 1);
+    }
+    return false;
   }
 
   get diagnostic() {

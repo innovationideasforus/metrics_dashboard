@@ -23,7 +23,7 @@ const AutogiosSchema = new mongoose.Schema({
   downTime: {
     type: Number,
   },
-  otherActivies: {
+  otherActivities: {
     type: String,
     trim: true,
   },

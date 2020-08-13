@@ -15,7 +15,7 @@ export class AutoclaimsService {
     private http: HttpClient
   ) {}
 
-  addClaimsAutomation(autoclaims: AutoClaims) {
+  addClaimsAutomation(autoclaims: AutoClaims[]) {
     return this.webService.addClaimsAutomation(autoclaims).pipe(
       shareReplay(),
       tap((res: HttpResponse<any>) => {

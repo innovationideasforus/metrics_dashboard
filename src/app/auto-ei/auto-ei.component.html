@@ -1,4 +1,4 @@
-{{ diagnostic }}
+<!-- {{ diagnostic }} -->
 <div class="gios-wrapper">
   <h1>EI AUTOMATION</h1>
 
@@ -182,13 +182,61 @@
             />
           </div>
         </div>
-        <!-- =============================End============================================= -->
+        
+         <!-- ========================================================================== -->
+
+
+         <div class="row-item sml-mrgn-lft">
+          <button type="submit" class="sml-btn" (click)="addEiAuto(model)">Add</button>
+        </div>
       </div>
     </div>
 
-    <div class="footer">
-      <button type="submit">Submit</button>
+<div *ngIf="autoEiAutoItems.length > 0">
+  <div class="row row-body" *ngFor="let item of autoEiAutoItems; index as i">
+    <div class="row-item">
+      <p>{{item.date}}</p>
     </div>
+    <div class="row-item">
+      <p>{{item?.scriptsPrepared}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.scriptsPreparedTimeTaken}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.scriptsExecuted}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.scriptsExecutedTimeTaken}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.defectsRaised}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.downtime}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.otherActivities}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.otherActivitiesTimeTaken}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.remarks}}</p>
+    </div>
+    <a class="removeBtn" (click)="removeEiAuto(i)">Remove</a>
+  </div>
+</div>
+    
+
+
+    <div >
+    <div class="footer">
+      <button type="submit" *ngIf="autoEiAutoItems.length > 0">Submit</button>
+    </div>
+   
+
+    
     <!-- =============================Footer============================================= -->
     <div class="footer">
       <button
@@ -199,6 +247,7 @@
       >
         Cancel
       </button>
+    </div>
     </div>
   </form>
   <svg

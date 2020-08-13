@@ -4,6 +4,7 @@ import { AutoClaims } from './autoclaims';
 import { AutoclaimsService } from '../autoclaims.service';
 import { HttpResponse } from '@angular/common/http';
 import { from } from 'rxjs';
+import { newArray } from '@angular/compiler/src/util';
 @Component({
   selector: 'app-auto-claimsauto',
   templateUrl: './auto-claimsauto.component.html',
@@ -37,6 +38,7 @@ export class AutoClaimsautoComponent implements OnInit {
     'Data Preparation',
   ];
   otherProjects = ['QTP', 'CTA'];
+
   model: AutoClaims = new AutoClaims(
     '2020-07-27',
     'QTP',
@@ -52,7 +54,7 @@ export class AutoClaimsautoComponent implements OnInit {
     1,
     'REMARKS'
   );
-
+autoClaimsAutoItems:AutoClaims[] = [];
   constructor(
     private router: Router,
     private autoclaimsService: AutoclaimsService
@@ -63,14 +65,16 @@ export class AutoClaimsautoComponent implements OnInit {
     this.router.navigate(['homepage']);
   }
 
+  
   onSubmit() {
     this.autoclaimsService
-      .addClaimsAutomation(this.model)
+      .addClaimsAutomation(this.autoClaimsAutoItems)
       .subscribe((res: HttpResponse<any>) => {
         if (res.status === 200) {
-          // we have logged in successfully
-          console.log(res);
-          this.router.navigate(['autoclaims']);
+          console.log("Here status code is 200!");
+          this.router.navigateByUrl('/homepage', { skipLocationChange: true }).then(() => {
+            this.router.navigate(['claimsauto']);
+        });
         }
       });
   }
@@ -78,4 +82,21 @@ export class AutoClaimsautoComponent implements OnInit {
   get diagnostic() {
     return JSON.stringify(this.model);
   }
+
+  addClaimsAuto(modObj){
+    console.log("Model Here is:"+JSON.stringify(modObj));
+    
+    this.autoClaimsAutoItems.push({...modObj});
+    console.log("Array Item is:"+JSON.stringify(this.autoClaimsAutoItems));
+    return false;
+  }
+
+  removeClaimsAuto(index: number) {
+    if (this.autoClaimsAutoItems.length > 0) {
+      this.autoClaimsAutoItems.splice(index, 1);
+    }
+    return false;
+  }
+
+ 
 }

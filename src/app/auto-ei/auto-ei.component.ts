@@ -4,6 +4,7 @@ import { AutoEi } from './autoei';
 import { AutoeiService } from '../autoei.service';
 import { HttpResponse } from '@angular/common/http';
 import { from } from 'rxjs';
+import { newArray } from '@angular/compiler/src/util';
 @Component({
   selector: 'app-auto-ei',
   templateUrl: './auto-ei.component.html',
@@ -48,6 +49,7 @@ export class AutoeiComponent implements OnInit {
     2,
     'REMARKS'
   );
+  autoEiAutoItems:AutoEi[] = [];
 
   constructor(private router: Router, private autoeiService: AutoeiService) {}
 
@@ -59,14 +61,30 @@ export class AutoeiComponent implements OnInit {
 
   onSubmit() {
     this.autoeiService
-      .addEiAutomation(this.model)
+      .addEiAutomation(this.autoEiAutoItems)
       .subscribe((res: HttpResponse<any>) => {
         if (res.status === 200) {
-          // we have logged in successfully
-          console.log(res);
-          this.router.navigate(['homepage']);
+          console.log("Here status code is 200!");
+          this.router.navigateByUrl('/homepage', { skipLocationChange: true }).then(() => {
+            this.router.navigate(['auto-ei']);
+        });
         }
       });
+  }
+            
+  addEiAuto(modObj){
+    console.log("Model Here is:"+JSON.stringify(modObj));
+    
+    this.autoEiAutoItems.push({...modObj});
+    console.log("Array Item is:"+JSON.stringify(this.autoEiAutoItems));
+    return false;
+  }
+
+  removeEiAuto(index: number) {
+    if (this.autoEiAutoItems.length > 0) {
+      this.autoEiAutoItems.splice(index, 1);
+    }
+    return false;
   }
 
   get diagnostic() {

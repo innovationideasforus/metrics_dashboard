@@ -8,10 +8,10 @@ export class AutoClaims {
     public testCaseFixedTimeTaken: number,
     public newScriptsCreated: number,
     public newScriptsCreatedTimeTaken: number,
-    public defectsRaised: number,
-    public downTime: number,
-    public otherActivities: string,
-    public otherActivitiesTimeTaken: number,
-    public remarks: string
+    public defectsRaised?: number,
+    public downTime?: number,
+    public otherActivities?: string,
+    public otherActivitiesTimeTaken?: number,
+    public remarks?: string
   ) {}
 }

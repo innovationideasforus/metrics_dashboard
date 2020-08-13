@@ -26,14 +26,14 @@ const AutoeiSchema = new mongoose.Schema({
   defectsRaised: {
     type: Number,
   },
-  downTime: {
+  downtime: {
     type: Number,
   },
-  otherActivies: {
+  otherActivities: {
     type: String,
     trim: true,
   },
-  otherActiviesTimeTaken: {
+  otherActivitiesTimeTaken: {
     type: Number,
   },
   remarks: {

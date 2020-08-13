@@ -5,13 +5,17 @@ const { User, Autoclaims } = require('../models');
 
 router.post('/autoclaims', auth, async (req, res) => {
   try {
-    const autoclaims = new Autoclaims({
-      ...req.body,
-      owner: req.user._id,
-    });
-    await autoclaims.save();
-    console.log('Data Saved!!!');
-    res.status(200).send(autoclaims);
+    let autoClaimsArr = req.body;
+    let dbAutoClaimsArr = [];
+    for(autoClaims of autoClaimsArr){
+      dbAutoClaimsArr.push(new Autoclaims({
+        ...autoClaims,
+        owner: req.user._id,
+      }));
+    }
+    let savedDoc = await Autoclaims.insertMany(dbAutoClaimsArr);
+    // console.log('Data Saved!!!');
+    res.status(200).send(savedDoc);
   } catch (e) {
     res.status(400).send({ error: 'Invalid request' });
   }

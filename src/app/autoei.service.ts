@@ -15,7 +15,7 @@ export class AutoeiService {
     private http: HttpClient
   ) {}
 
-  addEiAutomation(autoei: AutoEi) {
+  addEiAutomation(autoei: AutoEi[]) {
     return this.webService.addEiAutomation(autoei).pipe(
       shareReplay(),
       tap((res: HttpResponse<any>) => {

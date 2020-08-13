@@ -54,14 +54,13 @@ export class WebRequestService {
     return this.http.post(url, body, {headers: headers, observe: 'response'});
   }
 
-  addEiAutomation(autoei: AutoEi) {
+  addEiAutomation(autoei: AutoEi[]) {
     let url = `${this.ROOT_URL}/autoei`;
     let body = autoei;
     let headers = new HttpHeaders({
       'x-access-token': localStorage.getItem('x-access-token'),
       'x-refresh-token': localStorage.getItem('x-refresh-token'),
     });
-    let options = { headers: headers };
     return this.http.post(url, body, {headers: headers, observe: 'response'});
   }
 

@@ -234,14 +234,67 @@
             />
           </div>
         </div>
-        <!-- =============================End============================================= -->
+        <!-- ========================================================================== -->
+
+
+        <div class="row-item sml-mrgn-lft">
+          <button type="submit" class="sml-btn" (click)="addClaimsAuto(model)">Add</button>
+        </div>
       </div>
     </div>
 
-    <!-- =============================Footer============================================= -->
-    <div class="footer">
-      <button>Submit</button>
+<div *ngIf="autoClaimsAutoItems.length > 0">
+  <div class="row row-body" *ngFor="let item of autoClaimsAutoItems; index as i">
+    <div class="row-item">
+      <p>{{item.Date}}</p>
     </div>
+    <div class="row-item">
+      <p>{{item?.projects}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.testCaseExecuted}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.testCaseExecutedTimeTaken}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.testCaseFixed}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.testCaseFixedTimeTaken}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.newScriptsCreated}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.newScriptsCreatedTimeTaken}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.defectsRaised}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.downTime}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.otherActivities}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.otherActivitiesTimeTaken}}</p>
+    </div>
+    <div class="row-item">
+      <p>{{item?.remarks}}</p>
+    </div>
+    <a class="removeBtn" (click)="removeClaimsAuto(i)">Remove</a>
+  </div>
+</div>
+    
+
+
+    <div >
+    <div class="footer">
+      <button type="submit" *ngIf="autoClaimsAutoItems.length > 0">Submit</button>
+    </div>
+<!-- ========================================================================== -->
     <div class="footer">
       <button
         _ngcontent-slc-c17=""
@@ -252,6 +305,7 @@
         Cancel
       </button>
     </div>
+  </div>
   </form>
   <svg
     id="clouds"

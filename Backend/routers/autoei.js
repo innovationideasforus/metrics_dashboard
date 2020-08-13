@@ -5,14 +5,19 @@ const { User, Autoei } = require('../models');
 
 router.post('/autoei', auth, async (req, res) => {
   try {
-    const autoei = new Autoei({
-      ...req.body,
-      owner: req.user._id,
-    });
-    await autoei.save();
-    console.log('Data Saved!!!');
-    res.status(200).send(autoei);
+    let autoEiArr = req.body;
+    let dbAutoEiArr = [];
+    for(autoEi of autoEiArr){
+      dbAutoEiArr.push(new Autoei({
+        ...autoEi,
+        owner: req.user._id,
+      }));
+    }
+    let savedDoc = await Autoei.insertMany(dbAutoEiArr);
+    // console.log('Data Saved!!!');
+    res.status(200).send(savedDoc);
   } catch (e) {
+    console.error(e);
     res.status(400).send({ error: 'Invalid request' });
   }
 });

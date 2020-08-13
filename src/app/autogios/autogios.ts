@@ -3,10 +3,10 @@ export class AutoGios {
     public date: string,
     public testCaseFixed: number,
     public testCaseExecuted: number,
-    public downTime: number,
     public defectRaised?: number,
-    public timeTaken?: number,
+    public downTime?: number,   
     public otherActivities?: string,
+    public timeTaken?: number,
     public remarks?: string
   ) {}
 }

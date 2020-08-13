@@ -40,13 +40,13 @@ export class AutoeiComponent implements OnInit {
   model: AutoEi = new AutoEi(
     '2020-07-27',
     1,
-    1,
-    1,
-    1,
-    1,
-    1,
-    'Calls',
     2,
+    3,
+    4,
+    5,
+    6,
+    'Calls',
+    7,
     'REMARKS'
   );
   autoEiAutoItems:AutoEi[] = [];

@@ -64,7 +64,7 @@ export class WebRequestService {
     return this.http.post(url, body, {headers: headers, observe: 'response'});
   }
 
-  addClaimsAutomation(autoclaims: AutoClaims) {
+  addClaimsAutomation(autoclaims: AutoClaims[]) {
     let url = `${this.ROOT_URL}/autoclaims`;
     let body = autoclaims;
     let headers = new HttpHeaders({

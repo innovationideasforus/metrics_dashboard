@@ -5,13 +5,17 @@ const { User, Funmobile } = require('../models');
 
 router.post('/funmobile', auth, async (req, res) => {
   try {
-    const funmobile = new Funmobile({
-      ...req.body,
-      owner: req.user._id,
-    });
-    await funmobile.save();
-    console.log('Data Saved!!!');
-    res.status(200).send(funmobile);
+    let funMobileArr = req.body;
+    let dbMobileArr = [];
+    for(funmobile of funMobileArr){
+      dbMobileArr.push(new Funmobile({
+        ...funmobile,
+        owner: req.user._id,
+      }));
+    }
+    let savedDoc = await Funmobile.insertMany(dbMobileArr);
+    // console.log('Data Saved!!!');
+    res.status(200).send(savedDoc);
   } catch (e) {
     res.status(400).send({ error: 'Invalid request' });
   }

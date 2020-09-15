@@ -5,13 +5,17 @@ const { User, Funcuscomms } = require('../models');
 
 router.post('/funcuscomms', auth, async (req, res) => {
   try {
-    const funcuscomms = new Funcuscomms({
-      ...req.body,
-      owner: req.user._id,
-    });
-    await funcuscomms.save();
-    console.log('Data Saved!!!');
-    res.status(200).send(funcuscomms);
+    let funCuscommsArr = req.body;
+    let dbCuscommsArr = [];
+    for(funcuscomms of funCuscommsArr){
+      dbCuscommsArr.push(new Funcuscomms({
+        ...funcuscomms,
+        owner: req.user._id,
+      }));
+    }
+    let savedDoc = await Funcuscomms.insertMany(dbCuscommsArr);
+    // console.log('Data Saved!!!');
+    res.status(200).send(savedDoc);
   } catch (e) {
     res.status(400).send({ error: 'Invalid request' });
   }

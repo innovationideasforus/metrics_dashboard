@@ -49,6 +49,8 @@ export class FunctwebComponent implements OnInit {
     1,
     'test'
   );
+
+  funWebItems:FunWeb[] = [];
   constructor(private router: Router, private funwebService: FunwebService) {}
 
   ngOnInit(): void {}
@@ -56,20 +58,36 @@ export class FunctwebComponent implements OnInit {
   cancel() {
     this.router.navigate(['homepage']);
   }
-
+ 
   onSubmit() {
     this.funwebService
-      .addFunwebFunctional(this.model)
+      .addFunwebFunctional(this.funWebItems)
       .subscribe((res: HttpResponse<any>) => {
         if (res.status === 200) {
-          // we have logged in successfully
-          console.log(res);
-          this.router.navigate(['homepage']);
+          console.log("Here status code is 200!");
+          this.router.navigateByUrl('/homepage', { skipLocationChange: true }).then(() => {
+            this.router.navigate(['functclaims']);
+        });
         }
       });
   }
 
   get diagnostic() {
     return JSON.stringify(this.model);
+  }
+
+  addFunWeb(modObj){
+    console.log("Model Here is:"+JSON.stringify(modObj));
+    
+    this.funWebItems.push({...modObj});
+    console.log("Array Item is:"+JSON.stringify(this.funWebItems));
+    return false;
+  }
+
+  removeFunWeb(index: number) {
+    if (this.funWebItems.length > 0) {
+      this.funWebItems.splice(index, 1);
+    }
+    return false;
   }
 }

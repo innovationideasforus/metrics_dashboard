@@ -15,7 +15,7 @@ export class FunmobileService {
     private http: HttpClient
   ) {}
 
-  addFunmobileFunctional(funmobile: FunMobile) {
+  addFunmobileFunctional(funmobile: FunMobile[]) {
     return this.webService.addFunmobileFunctional(funmobile).pipe(
       shareReplay(),
       tap((res: HttpResponse<any>) => {

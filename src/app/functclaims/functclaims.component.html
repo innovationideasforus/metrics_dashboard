@@ -311,11 +311,70 @@
             />
           </div>
         </div>
-        <!-- =============================End============================================= -->
+         <!-- ========================================================================== -->
+
+         <div class="row-item sml-mrgn-lft">
+          <button type="submit" class="sml-btn" (click)="addFunClaims(model)">Add</button>
+        </div>
       </div>
     </div>
+
+    <div *ngIf="funClaimsItems.length > 0">
+      <div class="row row-body" *ngFor="let item of funClaimsItems; index as i">
+        <div class="row-item">
+          <p>{{item.date}}</p>
+        </div>
+        <div class="row-item">
+          <p>{{item?.projects}}</p>
+        </div>
+        <div class="row-item">
+          <p>{{item?.assignedTo}}</p>
+        </div>
+        <div class="row-item">
+          <p>{{item?.testPrepPlanned}}</p>
+        </div>
+        <div class="row-item">
+          <p>{{item?.testPrepPlannedTimeTaken}}</p>
+        </div>
+        <div class="row-item">
+          <p>{{item?.testPrepRework}}</p>
+        </div>
+        <div class="row-item">
+          <p>{{item?.testPrepReworkTimeTaken}}</p>
+        </div>
+        <div class="row-item">
+          <p>{{item?.pass}}</p>
+        </div>
+        <div class="row-item">
+          <p>{{item?.fail}}</p>
+        </div>
+        <div class="row-item">
+          <p>{{item?.hold}}</p>
+        </div>
+        <div class="row-item">
+          <p>{{item?.retest}}</p>
+        </div>
+        <div class="row-item">
+          <p>{{item?.downTime}}</p>
+        </div>
+        <div class="row-item">
+          <p>{{item?.otherActivities}}</p>
+        </div>
+        <div class="row-item">
+          <p>{{item?.otherActiviesTimeTaken}}</p>
+        </div>
+        <div class="row-item">
+          <p>{{item?.remarks}}</p>
+        </div>
+        
+        <a class="removeBtn" (click)="removeFunClaims(i)">Remove</a>
+      </div>
+    </div>
+
+
+   <div >
     <div class="footer">
-      <button>Submit</button>
+      <button type="submit" *ngIf="funClaimsItems.length > 0">Submit</button>
     </div>
     <!-- =============================Footer============================================= -->
     <div class="footer">
@@ -328,6 +387,7 @@
         Cancel
       </button>
     </div>
+  </div>
   </form>
 
   <svg

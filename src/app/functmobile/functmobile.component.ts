@@ -70,6 +70,8 @@ export class FunctmobileComponent implements OnInit {
     1,
     'test'
   );
+
+  funMobileItems:FunMobile[] = [];
   constructor(
     private router: Router,
     private funmobileService: FunmobileService
@@ -80,20 +82,37 @@ export class FunctmobileComponent implements OnInit {
   cancel() {
     this.router.navigate(['homepage']);
   }
-
+  
+          
   onSubmit() {
     this.funmobileService
-      .addFunmobileFunctional(this.model)
+      .addFunmobileFunctional(this.funMobileItems)
       .subscribe((res: HttpResponse<any>) => {
         if (res.status === 200) {
-          // we have logged in successfully
-          console.log(res);
-          this.router.navigate(['homepage']);
-        }
+          console.log("Here status code is 200!");
+          this.router.navigateByUrl('/homepage', { skipLocationChange: true }).then(() => {
+            this.router.navigate(['functmobile']);
+        });
+      }
       });
   }
-
   get diagnostic() {
     return JSON.stringify(this.model);
+  }
+
+  
+  addFunMobile(modObj){
+    console.log("Model Here is:"+JSON.stringify(modObj));
+    
+    this.funMobileItems.push({...modObj});
+    console.log("Array Item is:"+JSON.stringify(this.funMobileItems));
+    return false;
+  }
+
+  removeFunMobile(index: number) {
+    if (this.funMobileItems.length > 0) {
+      this.funMobileItems.splice(index, 1);
+    }
+    return false;
   }
 }

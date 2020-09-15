@@ -75,7 +75,7 @@ export class WebRequestService {
     return this.http.post(url, body, {headers: headers, observe: 'response'});
   }
 
-  addFunclaimsFunctional(funclaims: FunClaims) {
+  addFunclaimsFunctional(funclaims: FunClaims[]) {
     let url = `${this.ROOT_URL}/funclaims`;
     let body = funclaims;
     let headers = new HttpHeaders({
@@ -86,7 +86,7 @@ export class WebRequestService {
     return this.http.post(url, body, {headers: headers, observe: 'response'});
   }
 
-  addFuncuscommsFunctional(funcuscomms: FunCusComms) {
+  addFuncuscommsFunctional(funcuscomms: FunCusComms[]) {
     let url = `${this.ROOT_URL}/funcuscomms`;
     let body = funcuscomms;
     let headers = new HttpHeaders({
@@ -97,7 +97,7 @@ export class WebRequestService {
     return this.http.post(url, body, {headers: headers, observe: 'response'});
   }
 
-  addFunmobileFunctional(funmobile: FunMobile) {
+  addFunmobileFunctional(funmobile: FunMobile[]) {
     let url = `${this.ROOT_URL}/funmobile`;
     let body = funmobile;
     let headers = new HttpHeaders({
@@ -108,7 +108,7 @@ export class WebRequestService {
     return this.http.post(url, body, {headers: headers, observe: 'response'});
   }
 
-  addFunwebFunctional(funweb: FunWeb) {
+  addFunwebFunctional(funweb: FunWeb[]) {
     let url = `${this.ROOT_URL}/funweb`;
     let body = funweb;
     let headers = new HttpHeaders({

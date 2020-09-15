@@ -30,7 +30,7 @@ const FunwebSchema = new mongoose.Schema({
   downTime: {
     type: Number,
   },
-  otherActivies: {
+  otherActivities: {
     type: String,
     trim: true,
   },

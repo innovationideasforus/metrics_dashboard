@@ -4,11 +4,11 @@ export class FunWeb {
     public testPrepPlanned: number,
     public testPrepPlannedTimeTaken: number,
     public testCaseExecuted: number,
-    public testCaseExecutedTimeTaken: number,
-    public defectRaised: number,
-    public downTime: number,
-    public otherActivities: string,
-    public otherActivitiesTimeTaken: number,
-    public remarks: string
+    public testCaseExecutedTimeTaken?: number,
+    public defectRaised?: number,
+    public downTime?: number,
+    public otherActivities?: string,
+    public otherActivitiesTimeTaken?: number,
+    public remarks?: string
   ) {}
 }

@@ -56,6 +56,8 @@ export class FunctcuscommsComponent implements OnInit {
     1,
     'test'
   );
+
+  funCusCommsItems:FunCusComms[] = [];
   constructor(
     private router: Router,
     private funcuscommsService: FuncuscommsService
@@ -69,17 +71,34 @@ export class FunctcuscommsComponent implements OnInit {
 
   onSubmit() {
     this.funcuscommsService
-      .addFuncuscommsFunctional(this.model)
+      .addFuncuscommsFunctional(this.funCusCommsItems)
       .subscribe((res: HttpResponse<any>) => {
         if (res.status === 200) {
-          // we have logged in successfully
-          console.log(res);
-          this.router.navigate(['homepage']);
-        }
+          console.log("Here status code is 200!");
+          this.router.navigateByUrl('/homepage', { skipLocationChange: true }).then(() => {
+            this.router.navigate(['functcuscomms']);
+        });
+      }
       });
   }
 
   get diagnostic() {
     return JSON.stringify(this.model);
   }
+
+  addFunCusComms(modObj){
+    console.log("Model Here is:"+JSON.stringify(modObj));
+    
+    this.funCusCommsItems.push({...modObj});
+    console.log("Array Item is:"+JSON.stringify(this.funCusCommsItems));
+    return false;
+  }
+
+  removeFunCusComms(index: number) {
+    if (this.funCusCommsItems.length > 0) {
+      this.funCusCommsItems.splice(index, 1);
+    }
+    return false;
+  }
+
 }

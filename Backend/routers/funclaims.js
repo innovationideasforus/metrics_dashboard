@@ -4,19 +4,23 @@ const router = new express.Router();
 const { User, Funclaims } = require('../models');
 
 router.post('/funclaims', auth, async (req, res) => {
-  try {
-    const funclaims = new Funclaims({
-      ...req.body,
-      owner: req.user._id,
-    });
-    await funclaims.save();
-    console.log('Data Saved!!!');
-    res.status(200).send(funclaims);
+ try {
+    let funClaimsArr = req.body;
+    let dbFunClaimsArr = [];
+    for(funclaims of funClaimsArr){
+      dbFunClaimsArr.push(new Funclaims({
+        ...funclaims,
+        owner: req.user._id,
+      }));
+    }
+    let savedDoc = await Funclaims.insertMany(dbFunClaimsArr);
+    // console.log('Data Saved!!!');
+    res.status(200).send(savedDoc);
   } catch (e) {
     res.status(400).send({ error: 'Invalid request' });
   }
 });
-
+  
 router.get('/funclaims', auth, async (req, res) => {
   try {
     const user = req.user;

@@ -15,7 +15,7 @@ export class FunwebService {
     private http: HttpClient
   ) {}
 
-  addFunwebFunctional(funweb: FunWeb) {
+  addFunwebFunctional(funweb: FunWeb[]) {
     return this.webService.addFunwebFunctional(funweb).pipe(
       shareReplay(),
       tap((res: HttpResponse<any>) => {

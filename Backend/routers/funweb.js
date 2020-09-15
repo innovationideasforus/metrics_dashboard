@@ -5,13 +5,17 @@ const { User, Funweb } = require('../models');
 
 router.post('/funweb', auth, async (req, res) => {
   try {
-    const funweb = new Funweb({
-      ...req.body,
-      owner: req.user._id,
-    });
-    await funweb.save();
-    console.log('Data Saved!!!');
-    res.status(200).send(funweb);
+    let funwebArr = req.body;
+    let dbfunwebeArr = [];
+    for(funweb of funwebArr){
+      dbfunwebeArr.push(new Funweb({
+        ...funweb,
+        owner: req.user._id,
+      }));
+    }
+    let savedDoc = await Funweb.insertMany(dbfunwebeArr);
+    // console.log('Data Saved!!!');
+    res.status(200).send(savedDoc);
   } catch (e) {
     res.status(400).send({ error: 'Invalid request' });
   }

@@ -15,7 +15,7 @@ export class FunclaimsService {
     private http: HttpClient
   ) {}
 
-  addFunclaimsFunctional(funclaims: FunClaims) {
+  addFunclaimsFunctional(funclaims: FunClaims[]) {
     return this.webService.addFunclaimsFunctional(funclaims).pipe(
       shareReplay(),
       tap((res: HttpResponse<any>) => {

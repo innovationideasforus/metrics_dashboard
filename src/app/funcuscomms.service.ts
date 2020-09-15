@@ -15,7 +15,7 @@ export class FuncuscommsService {
     private http: HttpClient
   ) {}
 
-  addFuncuscommsFunctional(funcuscomms: FunCusComms) {
+  addFuncuscommsFunctional(funcuscomms: FunCusComms[]) {
     return this.webService.addFuncuscommsFunctional(funcuscomms).pipe(
       shareReplay(),
       tap((res: HttpResponse<any>) => {

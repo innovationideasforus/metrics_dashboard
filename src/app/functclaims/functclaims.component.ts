@@ -4,6 +4,7 @@ import { FunClaims } from './funclaims';
 import { FunclaimsService } from '../funclaims.service';
 import { HttpResponse } from '@angular/common/http';
 import { from } from 'rxjs';
+import { newArray } from '@angular/compiler/src/util';
 @Component({
   selector: 'app-functclaims',
   templateUrl: './functclaims.component.html',
@@ -40,6 +41,7 @@ export class FunctclaimsComponent implements OnInit {
   otherModules = ['IAS', 'Softco', 'PVS', 'Myvhi', 'PCCS'];
   otherRelease = ['Release 1', 'Release 2', 'Release 3'];
   otherAssigned = ['Geetha'];
+  
   model: FunClaims = new FunClaims(
     '2020-07-27',
     'Data Retention',
@@ -59,6 +61,8 @@ export class FunctclaimsComponent implements OnInit {
     1,
     'test'
   );
+
+  funClaimsItems:FunClaims[] = [];
   constructor(
     private router: Router,
     private funclaimsService: FunclaimsService
@@ -72,12 +76,13 @@ export class FunctclaimsComponent implements OnInit {
 
   onSubmit() {
     this.funclaimsService
-      .addFunclaimsFunctional(this.model)
+      .addFunclaimsFunctional(this.funClaimsItems)
       .subscribe((res: HttpResponse<any>) => {
         if (res.status === 200) {
-          // we have logged in successfully
-          console.log(res);
-          this.router.navigate(['homepage']);
+          console.log("Here status code is 200!");
+          this.router.navigateByUrl('/homepage', { skipLocationChange: true }).then(() => {
+            this.router.navigate(['functclaims']);
+        });
         }
       });
   }
@@ -85,4 +90,20 @@ export class FunctclaimsComponent implements OnInit {
   get diagnostic() {
     return JSON.stringify(this.model);
   }
+
+  addFunClaims(modObj){
+    console.log("Model Here is:"+JSON.stringify(modObj));
+    
+    this.funClaimsItems.push({...modObj});
+    console.log("Array Item is:"+JSON.stringify(this.funClaimsItems));
+    return false;
+  }
+
+  removeFunClaims(index: number) {
+    if (this.funClaimsItems.length > 0) {
+      this.funClaimsItems.splice(index, 1);
+    }
+    return false;
+  }
+
 }

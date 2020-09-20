@@ -23,6 +23,7 @@ const funclaimsRouter = require('./routers/funclaims');
 const funcuscommsRouter = require('./routers/funcuscomms');
 const funmobileRouter = require('./routers/funmobile');
 const funwebRouter = require('./routers/funweb');
+const reportRouter = require('./routers/report');
 const app = express();
 /*
 CORS - cross origin request security
@@ -61,11 +62,13 @@ app.get('/', (req, res) => {
 
 /* MIDDLEWARE ENDS*/
 app.use(express.json());
-app.use(userRouter, autogiosRouter);
-app.use(userRouter, autoeiRouter);
-app.use(userRouter, autoclaimsRouter);
-app.use(userRouter, funclaimsRouter);
-app.use(userRouter, funcuscommsRouter);
-app.use(userRouter, funmobileRouter);
-app.use(userRouter, funwebRouter);
+app.use(userRouter);
+app.use(autogiosRouter)
+app.use(autoeiRouter);
+app.use(autoclaimsRouter);
+app.use(funclaimsRouter);
+app.use(funcuscommsRouter);
+app.use(funmobileRouter);
+app.use(funwebRouter);
+app.use(reportRouter);
 app.listen(3000, () => console.log('Server Connected On Port 3000'));

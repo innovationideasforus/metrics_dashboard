@@ -14,6 +14,7 @@ import { RepdefectsComponent } from './repdefects/repdefects.component';
 import { RepleaveComponent } from './repleave/repleave.component';
 import { RepmonthlyComponent } from './repmonthly/repmonthly.component';
 import { RepweeklyComponent } from './repweekly/repweekly.component';
+import { DateRangeComponent } from './date-range/date-range.component';
 
 const routes: Routes = [
   {
@@ -77,6 +78,10 @@ const routes: Routes = [
     path: 'repweekly',
     component: RepweeklyComponent,
   },
+  {
+    path: 'daterange',
+    component: DateRangeComponent,
+  }
 ];
 
 @NgModule({

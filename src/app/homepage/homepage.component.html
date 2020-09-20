@@ -53,11 +53,10 @@
     <!--Reports_Starting-->
     <a class="card" target="_blank" rel="noopener">
       <span>REPORTS</span>
-      <select id="REPORTS" onchange="myFunction()" class="form-control">
-        <option>Weekly Report</option>
-        <option>Defect Reports</option>
-        <option>Monthly Reports</option>
-        <option>Leave Reports</option>
+      <select id="REPORTS" (change)="navigateReport()" class="form-control" [(ngModel)]="reportType">
+        <option *ngFor="let item of reportTypes" [value]="item.value">
+          {{ item.label }}
+        </option>
       </select>
     </a>
     <!--Reports_Ending-->

@@ -1,0 +1,33 @@
+API Design [3 hours]
+HTTP GET
+/reports?type=all&from=20051989&to=20061989
+/reports?type=gios&from=20051989&to=20061989
+/reports?type=aios&from=20051989&to=20061989
+
+ANGULAR ->    EXRPRESS JS (Server)
+{
+[
+ {
+   "date":"",
+   "textCaseFixed":"",
+   "type":"GIOS"
+ },
+ {
+   "date":"",
+    "textCaseFixed":"",
+    "type":"aios"
+ }
+]
+}
+Angular response => create different array objects => will be shown in UI page
+
+
+plus button
+[
+{
+},
+{
+}
+]
+
+

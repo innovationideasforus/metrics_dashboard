@@ -31,6 +31,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { from } from 'rxjs';
 import { SignupPageComponent } from './signup-page/signup-page.component';
+import { DateRangeComponent } from './date-range/date-range.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { SignupPageComponent } from './signup-page/signup-page.component';
     RepdefectsComponent,
     LearningComponent,
     SignupPageComponent,
+    DateRangeComponent,
   ],
   imports: [
     HttpClientModule,

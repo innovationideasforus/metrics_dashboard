@@ -1,0 +1,125 @@
+.row {
+    display: flex;
+    align-items: center;
+  }
+  .row-item {
+    width: 10%;
+  }
+  .daterange-wrapper {
+    padding: 30px;
+  }
+  .row-item input,
+  select {
+    border: 1px solid #999;
+    outline: none;
+    box-shadow: none;
+    padding: 10px;
+    border-radius: 4px;
+    width: 80%;
+    font-size: 18px;
+  }
+  .footer {
+    padding: 40px 20px;
+    float: right;
+  }
+  .footer button {
+    padding: 15px 30px;
+    background: #6846c7;
+    color: #fff;
+    font-size: 25px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .sml-btn{
+    padding: 10px;
+    background: #28a745;
+    color: #fff;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .sml-btn:hover{
+    padding: 10px;
+    background: #218838;
+    border-color: #1e7e34;
+    color: #fff;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .removeBtn{
+    box-sizing: border-box;
+    display: inline-block;
+    height: 25px;
+    width:60px;
+    text-align: center;
+    background-color: #dc3545;
+    border-color:#dc3545 ;
+    color: #fff;
+    border-radius: 5%;
+    padding: 2px;
+    cursor: pointer;
+  }
+  
+  .removeBtn:hover{
+    background-color: #c82333;
+    border-color:#bd2130 ;
+  }
+  .sml-mrgn-lft{
+    margin-left: 15px;
+  }
+  
+  svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+  }
+
+  .report-container{
+    padding-top: 20px;
+    font-size: 14px;
+  }
+  table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+
+  }
+  
+  /* thead th:nth-child(1) {
+    width: 30%;
+  }
+  
+  thead th:nth-child(2) {
+    width: 20%;
+  }
+  
+  thead th:nth-child(3) {
+    width: 15%;
+  }
+  
+  thead th:nth-child(4) {
+    width: 35%;
+  } */
+  
+  th, td {
+    padding: 20px;
+
+  }
+
+  th{
+    text-align: left;
+  }
+
+  

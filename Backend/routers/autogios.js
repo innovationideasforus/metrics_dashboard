@@ -11,6 +11,7 @@ router.get('/testAuth', auth, (req, res) => {
 router.post('/autogios', auth, async (req, res) => {
   try {
     let autoGiosArr = req.body;
+    console.log("Input response"+JSON.stringify(autoGiosArr));
     let dbAutoGiosArr = [];
     for(autoGios of autoGiosArr){
       dbAutoGiosArr.push(new Autogios({
@@ -18,8 +19,9 @@ router.post('/autogios', auth, async (req, res) => {
         owner: req.user._id,
       }));
     }
+    console.log("Value here after obj Creation:"+JSON.stringify(dbAutoGiosArr));
     let savedDoc = await Autogios.insertMany(dbAutoGiosArr);
-    // console.log('Data Saved!!!');
+    console.log('Data Saved!!!');
     res.status(200).send(savedDoc);
   } catch (e) {
     console.error(e);

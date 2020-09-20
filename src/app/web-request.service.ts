@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { AutoGios } from './autogios/autogios';
+import { DateRange } from './date-range/date-range';
 import { AutoEi } from './auto-ei/autoei';
 import { AutoClaims } from './auto-claimsauto/autoclaims';
 import { FunClaims } from './functclaims/funclaims';
@@ -118,4 +119,18 @@ export class WebRequestService {
     let options = { headers: headers };
     return this.http.post(url, body, {headers: headers, observe: 'response'});
   }
+
+  generateReport(dateRange: DateRange)  {
+    const regEx = /\-/g;
+    let url = `${this.ROOT_URL}/reports`;
+    let reportType = dateRange.reportType;
+    let fromDate = dateRange.fromDate.replace(regEx,"");
+    let toDate = dateRange.toDate.replace(regEx,"");
+    let headers = new HttpHeaders({
+      'x-access-token': localStorage.getItem('x-access-token'),
+      'x-refresh-token': localStorage.getItem('x-refresh-token'),
+    });
+    return this.http.get(url,{headers: headers,params:{'type':reportType,'fromDate':fromDate,'toDate':toDate}, observe: 'response'});
+  }
+
 }

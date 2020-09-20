@@ -40,7 +40,32 @@ export class HomepageComponent implements OnInit {
       label: 'WEB',
     },
   ];
+
+  reportTypes = [
+    {
+      value: '',
+      label: 'Select Report period',
+    },
+    {
+      value: 'weekly',
+      label: 'Weekly Report',
+    },
+    {
+      value: 'defect',
+      label: 'Defect Reports',
+    },
+    {
+      value: 'monthly',
+      label: 'Monthly Reports',
+    },
+    {
+      value: 'daterange',
+      label: 'Date range',
+    }
+  ]
+
   functional: any;
+  reportType:any = '';
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
@@ -53,5 +78,9 @@ export class HomepageComponent implements OnInit {
   }
   selectFunctional(e) {
     this.router.navigate([this.functional]);
+  }
+  navigateReport(){
+    console.log("Report Value generated"+this.reportType);
+    this.router.navigate([this.reportType]);
   }
 }

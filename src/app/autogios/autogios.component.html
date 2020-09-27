@@ -1,9 +1,12 @@
-<!-- {{ diagnostic }} -->
+{{ diagnostic }}
 <div class="gios-wrapper">
   <h1>GIOS AUTOMATION</h1>
 
   <form #autoGiosForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="row row-header">
+      <div class="row-item">
+        <h1>Name</h1>
+      </div>
       <div class="row-item">
         <h1>Date</h1>
       </div>
@@ -32,6 +35,19 @@
 
     <div>
       <div class="row row-body">
+
+        <div class="row-item">
+          <div class="form-input">
+            <input
+              type="String"
+              id="giosName"
+              [(ngModel)]="model.name"
+              name="giosName"
+              #giosName
+            />
+          </div>
+        </div>
+
         <div class="row-item">
           <div class="form-input">
             <input
@@ -133,6 +149,9 @@
 
 <div *ngIf="autoGiosItems.length > 0">
   <div class="row row-body" *ngFor="let item of autoGiosItems; index as i">
+    <div class="row-item">
+      <p>{{item.name}}</p>
+    </div>
     <div class="row-item">
       <p>{{item.date}}</p>
     </div>

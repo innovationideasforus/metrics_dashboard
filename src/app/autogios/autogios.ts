@@ -1,5 +1,6 @@
 export class AutoGios {
   constructor(
+    public name:string,
     public date: string,
     public testCaseFixed: number,
     public testCaseExecuted: number,

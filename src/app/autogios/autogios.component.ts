@@ -37,7 +37,7 @@ export class AutogiosComponent implements OnInit {
     'Coordination with the onsite team',
     'Data Preparation',
   ];
-  model: AutoGios = new AutoGios('2020-07-27', 1, 2, 3, 4,'Calls',5,'Remraks');
+  model: AutoGios = new AutoGios('Name','2020-07-27', 1, 2, 3, 4,'Calls',5,'Remarks');
   autoGiosItems:AutoGios[] = [];
 
   constructor(

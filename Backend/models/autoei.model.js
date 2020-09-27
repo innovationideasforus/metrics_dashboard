@@ -8,8 +8,14 @@ const { response } = require('express');
 const bcrypt = require('bcryptjs');
 
 const AutoeiSchema = new mongoose.Schema({
+  name:{
+    type:String,
+  },
   date: {
     type: Date,
+  },
+  release: {
+    type: String,
   },
   scriptsPrepared: {
     type: Number,

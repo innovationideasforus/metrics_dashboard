@@ -8,8 +8,14 @@ const { response } = require('express');
 const bcrypt = require('bcryptjs');
 
 const AutoclaimsSchema = new mongoose.Schema({
+  name:{
+    type:String,
+  },
   date: {
     type: Date,
+  },
+  release: {
+    type: String,
   },
   projects: {
     type: String,

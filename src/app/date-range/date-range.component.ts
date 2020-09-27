@@ -25,6 +25,11 @@ export class DateRangeComponent implements OnInit {
       value: 'claimsauto',
       label: 'CLAIMS AUTOMATION',
     },
+    {
+      value: 'funclaims',
+      label: 'FUNCTIONAL-CLAIMS',
+    },
+
   ];
 
   model: DateRange = new DateRange('autogios','2020-07-27','2020-08-20');

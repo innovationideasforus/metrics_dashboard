@@ -38,7 +38,9 @@ export class AutoeiComponent implements OnInit {
     'Data Preparation',
   ];
   model: AutoEi = new AutoEi(
+    'Name',
     '2020-07-27',
+    'Release 1',
     1,
     2,
     3,

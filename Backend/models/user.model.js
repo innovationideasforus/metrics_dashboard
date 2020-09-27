@@ -200,5 +200,11 @@ UserSchema.virtual('autogios', {
   foreignField: 'owner',
 });
 
+UserSchema.virtual('funclaims', {
+  ref: 'Funclaims',
+  localField: '_id',
+  foreignField: 'owner',
+});
+
 const User = mongoose.model('User', UserSchema);
 module.exports = { User };

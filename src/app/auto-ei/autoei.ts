@@ -1,6 +1,8 @@
 export class AutoEi {
   constructor(
+    public name:string,
     public date: string,
+    public release:string,
     public scriptsPrepared: number,
     public scriptsPreparedTimeTaken: number,
     public scriptsExecuted: number,

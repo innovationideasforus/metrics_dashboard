@@ -1,6 +1,8 @@
 export class AutoClaims {
   constructor(
+    public name:string,
     public date: string,
+    public release:string,
     public projects: string,
     public testCaseExecuted: number,
     public testCaseExecutedTimeTaken: number,

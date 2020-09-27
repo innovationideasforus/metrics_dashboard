@@ -24,6 +24,7 @@ router.post('/funclaims', auth, async (req, res) => {
 router.get('/funclaims', auth, async (req, res) => {
   try {
     const user = req.user;
+    console.log("User:"+user._id);
     await user.populate('funclaims').execPopulate();
     res.status(200).send(user.funclaims);
   } catch (e) {

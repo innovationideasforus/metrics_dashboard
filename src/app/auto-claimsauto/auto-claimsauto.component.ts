@@ -40,7 +40,9 @@ export class AutoClaimsautoComponent implements OnInit {
   otherProjects = ['QTP', 'CTA'];
 
   model: AutoClaims = new AutoClaims(
+    'Name',
     '2020-07-27',
+    'Release 1',
     'QTP',
     1,
     1,
